@@ -38,7 +38,6 @@
     a{color:inherit}
     .section{
       position:relative;
-      min-height:100svh;
       padding:90px 22px;
       display:flex;
       align-items:center;
@@ -136,6 +135,7 @@
     .timebox span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
 
     /* Events */
+    .hero{min-height:100svh;height:100svh;padding:0}
     .event{color:#fff;height:100svh;min-height:100svh;padding:0}
     .event .wash{background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18))}
     .event-card{display:none}
@@ -163,6 +163,7 @@
     input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:rgba(255,255,255,.7);color:var(--ink);outline:none}
     textarea{min-height:120px;resize:vertical}
     .full{grid-column:1/-1}
+    .rsvp-submit{text-align:center}
     .btn{
       border:0;border-radius:999px;padding:14px 24px;background:var(--ink);color:#fff;cursor:pointer;
       transition:transform .2s,opacity .2s; margin-top:8px;
@@ -188,7 +189,7 @@
     .guest-message strong{font-family:"Cormorant Garamond";font-size:1.3rem}
     .guest-message p{margin:8px 0 0;color:var(--muted)}
 
-    .footer{text-align:center;min-height:75svh}
+    .footer{text-align:center;padding-top:100px;padding-bottom:100px}
     .footer .names{font-family:"Cormorant Garamond";font-size:clamp(3rem,9vw,7rem)}
     .music{
       position:fixed;right:18px;top:18px;z-index:30;width:48px;height:48px;border-radius:50%;
@@ -297,7 +298,7 @@
             <div><label for="attendance">Attendance</label><select id="attendance" required><option value="">Select</option><option>Joyfully Accepts</option><option>Regretfully Declines</option></select></div>
             <div><label for="meal">Meal Preference</label><select id="meal"><option>Vegetarian</option><option>Non-Vegetarian</option><option>Other</option></select></div>
             <div class="full"><label for="message">Message</label><textarea id="message" placeholder="Leave a message for the couple"></textarea></div>
-            <div class="full"><button class="btn" type="submit">Send RSVP</button><div class="success" id="rsvpSuccess">Thank you — your RSVP has been recorded on this device.</div></div>
+            <div class="full rsvp-submit"><button class="btn" type="submit">Send RSVP</button><div class="success" id="rsvpSuccess">Thank you — your RSVP has been recorded on this device.</div></div>
           </div>
         </form>
       </div>
@@ -343,7 +344,7 @@
         <h2 class="script">Thank You</h2>
         <div class="ornament">♥</div>
         <p style="font-family:'Cormorant Garamond';font-size:1.5rem">We can't wait to celebrate with you.</p>
-        <div class="names">Dr. Shini &amp; Dr. Piyush</div>
+        <div class="names">Choubey &amp; Chaturvedi Family</div>
       </div>
     </section>
   </main>

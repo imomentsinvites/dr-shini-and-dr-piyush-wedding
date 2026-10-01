@@ -89,6 +89,7 @@
     .scroll span:last-child{font-size:1.3rem;animation:bob 1.8s ease-in-out infinite}
     @keyframes bob{50%{transform:translateY(7px)}}
 
+    .section-title{text-align:center}
     .ornament{display:flex;align-items:center;gap:15px;justify-content:center;margin:25px auto}
     .ornament:before,.ornament:after{content:"";height:1px;width:90px;background:currentColor;opacity:.35}
     .heart{font-size:1.05rem}
@@ -110,17 +111,16 @@
     .scratch-wrap{max-width:760px;margin:auto;text-align:center}
     .scratch-card{
       position:relative; width:min(650px,92vw); aspect-ratio:1.45/1; margin:30px auto;
-      border-radius:35px; overflow:hidden; box-shadow:var(--shadow);
-      background:#f4e7dc;
+      border-radius:0; overflow:hidden; box-shadow:none;
+      background:transparent;
     }
     #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
     .reveal{
       position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;
-      background:rgba(255,249,244,.96);
+      background:transparent;
     }
     .reveal small{letter-spacing:.2em;text-transform:uppercase}
     .reveal strong{display:block;font-family:"Cormorant Garamond";font-size:clamp(2.7rem,8vw,5rem);margin-top:10px}
-    .scratch-label{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-family:"Cormorant Garamond";font-size:clamp(1.3rem,4vw,2.2rem);font-weight:600;color:#633e35;transition:opacity .25s}.scratch-card.revealed .scratch-label{opacity:0}
 
     /* Countdown */
     .countdown{text-align:center}
@@ -162,6 +162,8 @@
       transition:transform .2s,opacity .2s; margin-top:8px;
     }
     .btn:hover{transform:translateY(-2px);opacity:.9}
+    #venue .card{text-align:center}
+    #venue .actions{justify-content:center}
     .map{
       min-height:360px;border-radius:25px;overflow:hidden;background:#e9dfd6;box-shadow:var(--shadow);
     }
@@ -231,7 +233,6 @@
               <strong>04 December 2026</strong>
             </div>
           </div>
-          <div class="scratch-label">SCRATCH TO REVEAL</div>
           <canvas id="scratchCanvas" aria-label="Scratch card"></canvas>
         </div>
       </div>
@@ -381,7 +382,7 @@
   }
   function eraseTo(x,y){ctx.globalCompositeOperation="destination-out";ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=54;ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(x,y);ctx.stroke();ctx.beginPath();ctx.arc(x,y,27,0,Math.PI*2);ctx.fill();lastX=x;lastY=y;}
   function scratch(e){if(revealed)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(!scratching){lastX=x;lastY=y;}eraseTo(x,y);const now=performance.now();if(now-lastCheck>140){lastCheck=now;checkScratch();}}
-  function checkScratch(){const d=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<d.length;i+=16){total++;if(d[i]<20)clear++;}if(clear/total>=.45){revealed=true;canvas.style.transition="opacity .35s ease";canvas.style.opacity="0";canvas.style.pointerEvents="none";}}
+  function checkScratch(){const d=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<d.length;i+=16){total++;if(d[i]<20)clear++;}if(clear/total>=.45){revealed=true;card.classList.add("revealed");canvas.style.transition="opacity .35s ease";canvas.style.opacity="0";canvas.style.pointerEvents="none";}}
   canvas.addEventListener("pointerdown",e=>{e.preventDefault();scratching=true;canvas.setPointerCapture?.(e.pointerId);scratch(e);});
   canvas.addEventListener("pointermove",e=>{if(scratching){e.preventDefault();scratch(e);}});
   canvas.addEventListener("pointerup",()=>scratching=false);canvas.addEventListener("pointercancel",()=>scratching=false);

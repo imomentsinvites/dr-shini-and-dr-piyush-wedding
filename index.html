@@ -75,7 +75,7 @@
     h3{font-size:clamp(1.8rem,4vw,3rem);font-weight:600}
     .script{font-family:Italianno,cursive;font-weight:400}
     .hero{text-align:center;color:#fff}
-    .hero .bg{background-image:url("assets/02-intro-sangeet-bg.jpg")}
+    .hero .bg{background-image:url("assets/02-intro-bg.jpg")}
     .hero .wash{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28))}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
@@ -104,7 +104,7 @@
     .intro-panel p{font-family:"Cormorant Garamond",serif;font-size:1.3rem;line-height:1.5}
 
     /* Scratch */
-    #scratch .bg{background-image:url("assets/02-intro-sangeet-bg.jpg")}
+    #scratch .bg{background-image:url("assets/02-intro-bg.jpg")}
     .scratch-wrap{max-width:760px;margin:auto;text-align:center}
     .scratch-card{
       position:relative; width:min(650px,92vw); aspect-ratio:1.45/1; margin:30px auto;
@@ -244,11 +244,11 @@
   <audio id="music" loop preload="none"></audio>
 
   <nav class="event-nav" aria-label="Wedding events">
+    <a href="#home">Home</a>
     <a href="#mehendi">Mehendi</a>
     <a href="#sangeet">Sangeet</a>
     <a href="#haldi">Haldi</a>
     <a href="#wedding">Wedding</a>
-    <a href="#vidai">Vidai</a>
   </nav>
 
   <main>
@@ -362,21 +362,6 @@
       <img class="event-art" src="assets/wedding-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
-    <section class="section event" id="vidai">
-      <div class="bg" style="background-image:url('assets/05-vidai-bg.jpg')"></div><div class="wash"></div>
-      <div class="content">
-        <div class="glass event-card">
-          <div class="eyebrow">Wedding Celebration</div>
-          <h2>Vidai Ceremony</h2>
-          <div class="ornament">♥</div>
-          <div class="date">Saturday, 05 December 2026</div>
-          <div class="time">9:00 AM</div>
-          <div class="venue">⌖ Raj Vilas Palace, Orchha (MP)</div>
-        </div>
-      </div>
-      <img class="event-art" src="assets/vidai-couple.png" alt="" onerror="this.style.display='none'">
-    </section>
-
     <section class="section light" id="timeline">
       <div class="content">
         <div class="section-title">
@@ -389,7 +374,6 @@
           <div class="timeline-item"><span class="dot"></span><div class="meta">03 December 2026 · 7:00 PM</div><h3>Sangeet Ceremony</h3><p>Arnav Hall, Raj Vilas Palace, Orchha (MP)</p></div>
           <div class="timeline-item"><span class="dot"></span><div class="meta">04 December 2026 · 11:00 AM</div><h3>Haldi Ceremony</h3><p>Utsav Courtyard, Raj Vilas Palace, Orchha (MP)</p></div>
           <div class="timeline-item"><span class="dot"></span><div class="meta">04 December 2026 · 5:30 PM onwards</div><h3>Wedding Ceremony</h3><p>Chatarbhuj Lawn, Raj Vilas Palace, Orchha (MP)</p></div>
-          <div class="timeline-item"><span class="dot"></span><div class="meta">05 December 2026 · 9:00 AM</div><h3>Vidai Ceremony</h3><p>Raj Vilas Palace, Orchha (MP)</p></div>
         </div>
       </div>
     </section>
@@ -675,7 +659,7 @@
 
   // Active event navigation
   const navLinks=[...document.querySelectorAll(".event-nav a")];
-  const sections=["mehendi","sangeet","haldi","wedding","vidai"].map(id=>document.getElementById(id));
+  const sections=["mehendi","sangeet","haldi","wedding"].map(id=>document.getElementById(id));
   const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){

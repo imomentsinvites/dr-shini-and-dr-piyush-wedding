@@ -75,8 +75,9 @@
     h3{font-size:clamp(1.8rem,4vw,3rem);font-weight:600}
     .script{font-family:Italianno,cursive;font-weight:400}
     .hero{text-align:center;color:#fff}
+    .hero .hero-inner{display:none}
     .hero .bg{background-image:url("assets/02-intro-bg.JPG")}
-    .hero .wash{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28))}
+    .hero .wash{display:none}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
     .amp{font-family:Italianno,cursive;font-size:.72em;display:inline-block;margin:.05em .1em}
@@ -104,12 +105,13 @@
     .intro-panel p{font-family:"Cormorant Garamond",serif;font-size:1.3rem;line-height:1.5}
 
     /* Scratch */
-    #scratch .bg{background-image:url("assets/02-intro-bg.JPG")}
+    #scratch .bg{display:none}
+    #scratch .wash{display:none}
     .scratch-wrap{max-width:760px;margin:auto;text-align:center}
     .scratch-card{
       position:relative; width:min(650px,92vw); aspect-ratio:1.45/1; margin:30px auto;
       border-radius:35px; overflow:hidden; box-shadow:var(--shadow);
-      background:#d9bca9;
+      background:#f4e7dc;
     }
     #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
     .reveal{
@@ -130,15 +132,12 @@
     /* Events */
     .event{color:#fff}
     .event .wash{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.35))}
-    .event-card{width:min(680px,100%);padding:clamp(30px,6vw,65px);text-align:center}
+    .event-card{display:none}
     .event-card .date{font-family:"Cormorant Garamond";font-size:clamp(1.2rem,3vw,1.65rem);margin:15px 0}
     .event-card .time{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase}
     .event-card .venue{font-family:"Cormorant Garamond";font-size:clamp(1.15rem,3vw,1.55rem);line-height:1.35;margin-top:18px}
     .event-card .pin{margin-right:6px}
-    .event-art{
-      position:absolute;bottom:-5px;right:3%;width:min(360px,35vw);max-height:58vh;object-fit:contain;object-position:bottom;
-      filter:drop-shadow(0 20px 30px rgba(0,0,0,.18));pointer-events:none;
-    }
+    .event-art{display:none}
     .event-nav{
       position:fixed;z-index:20;left:50%;bottom:18px;transform:translateX(-50%);
       display:flex;gap:5px;padding:6px;border-radius:999px;background:rgba(25,20,18,.78);
@@ -149,12 +148,12 @@
 
     /* Generic content */
 
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .card{padding:30px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;text-align:center}
+    .card{padding:30px;text-align:center}
     .card p{line-height:1.65;color:var(--muted)}
-    .form{max-width:850px;margin:auto;padding:clamp(25px,5vw,50px)}
-    .fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-    label{display:block;font-size:.78rem;letter-spacing:.06em;margin-bottom:7px}
+    .form{max-width:850px;margin:auto;padding:clamp(25px,5vw,50px);text-align:center}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:15px;text-align:center}
+    label{display:block;font-size:.78rem;letter-spacing:.06em;margin-bottom:7px;text-align:center}
     input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:rgba(255,255,255,.7);color:var(--ink);outline:none}
     textarea{min-height:120px;resize:vertical}
     .full{grid-column:1/-1}
@@ -200,7 +199,6 @@
       .fields{grid-template-columns:1fr}
       .full{grid-column:auto}
       .event-art{width:55vw;right:-3%;opacity:.9}
-      .event-card{position:relative;z-index:2}
       .event-nav{max-width:calc(100vw - 16px);overflow-x:auto;justify-content:flex-start}
       .event-nav a{font-size:.58rem;padding:8px 9px}
     }
@@ -219,33 +217,13 @@
   <button class="music" id="musicBtn" aria-label="Play wedding music" title="Play music">♫</button>
   <audio id="music" loop preload="none"></audio>
 
-  <nav class="event-nav" aria-label="Wedding events">
-    <a href="#mehendi">Mehendi</a>
-    <a href="#sangeet">Sangeet</a>
-    <a href="#haldi">Haldi</a>
-    <a href="#wedding">Wedding</a>
-  </nav>
 
   <main>
-    <section class="section hero" id="home">
-      <div class="bg"></div><div class="wash"></div>
-      <div class="content hero-inner">
-        <div class="eyebrow">A celebration of love</div>
-        <h1 class="names">Dr. Shini <span class="amp">&amp;</span> Dr. Piyush</h1>
-        <div class="ornament"><span>♡</span></div>
-        <p class="hero-copy">Together with their families, they invite you to celebrate their wedding.</p>
-        <button class="scroll" onclick="document.querySelector('#scratch').scrollIntoView({behavior:'smooth'})">
-          <span>SCROLL TO BEGIN</span><span>⌄</span>
-        </button>
-      </div>
-    </section>
+    <section class="section hero" id="home"><div class="bg" style="background-image:url('assets/02-intro-bg.JPG')"></div><div class="wash"></div></section>
 
     <section class="section light" id="scratch">
       <div class="bg"></div><div class="wash"></div>
       <div class="content scratch-wrap">
-        <div class="eyebrow">A little surprise</div>
-        <h2 class="script">Scratch to Reveal</h2>
-        <div class="ornament">♥</div>
         <div class="scratch-card" id="scratchCard">
           <div class="reveal">
             <div>
@@ -256,7 +234,6 @@
           <div class="scratch-label">SCRATCH TO REVEAL</div>
           <canvas id="scratchCanvas" aria-label="Scratch card"></canvas>
         </div>
-        <div class="reveal-toast">Scratch with your finger or mouse.</div>
       </div>
     </section>
 
@@ -390,61 +367,25 @@
   }
   tick(); setInterval(tick,1000);
 
-  // Scratch card — smooth, fast brush + progressive reveal
-  const canvas = document.getElementById("scratchCanvas");
-  const card = document.getElementById("scratchCard");
-  const ctx = canvas.getContext("2d", {willReadFrequently:true});
-  let scratching = false, revealed = false, lastX = 0, lastY = 0, lastCheck = 0;
-
+  // Scratch card — smooth continuous stroke; reveals at ~45%
+  const canvas=document.getElementById("scratchCanvas");
+  const card=document.getElementById("scratchCard");
+  const ctx=canvas.getContext("2d",{willReadFrequently:true});
+  let scratching=false,revealed=false,lastX=0,lastY=0,lastCheck=0;
   function resizeScratch(){
-    const r = card.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = Math.round(r.width*dpr); canvas.height = Math.round(r.height*dpr);
-    canvas.style.width = r.width+"px"; canvas.style.height = r.height+"px";
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.globalCompositeOperation = "source-over";
-    const g = ctx.createLinearGradient(0,0,r.width,r.height);
-    g.addColorStop(0,"#b98775"); g.addColorStop(.5,"#e7c0b0"); g.addColorStop(1,"#a86b58");
-    ctx.fillStyle = g; ctx.fillRect(0,0,r.width,r.height);
-    ctx.fillStyle="rgba(255,255,255,.16)";
-    ctx.font="600 18px DM Sans"; ctx.textAlign="center";
-    ctx.fillText("SCRATCH TO REVEAL",r.width/2,r.height/2);
+    const r=card.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);
+    canvas.width=r.width*dpr;canvas.height=r.height*dpr;canvas.style.width=r.width+"px";canvas.style.height=r.height+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation="source-over";
+    ctx.fillStyle="#c9b7a9";ctx.fillRect(0,0,r.width,r.height);
+    ctx.fillStyle="rgba(255,255,255,.3)";ctx.font="600 18px DM Sans";ctx.textAlign="center";ctx.fillText("SCRATCH TO REVEAL",r.width/2,r.height/2);
   }
-
-  function point(e){
-    const r=canvas.getBoundingClientRect();
-    return {x:e.clientX-r.left,y:e.clientY-r.top};
-  }
-  function eraseLine(x1,y1,x2,y2){
-    ctx.globalCompositeOperation="destination-out";
-    ctx.lineCap="round"; ctx.lineJoin="round"; ctx.lineWidth=46;
-    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-  }
-  function scratch(e){
-    if(revealed) return;
-    const p=point(e);
-    if(lastX===null){lastX=p.x;lastY=p.y;}
-    eraseLine(lastX,lastY,p.x,p.y);
-    // Add a slightly wider center for a natural scratch feel without circles.
-    ctx.lineWidth=30; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+0.01,p.y+0.01); ctx.stroke();
-    lastX=p.x; lastY=p.y;
-    const now=performance.now();
-    if(now-lastCheck>140){lastCheck=now;checkScratch();}
-  }
-  function checkScratch(){
-    const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
-    let clear=0, total=0;
-    for(let i=3;i<data.length;i+=64){ total++; if(data[i]<30) clear++; }
-    // Reveal once roughly 45% is scratched.
-    if(total && clear/total>=.45){
-      revealed=true; card.classList.add("revealed"); canvas.style.opacity="0"; canvas.style.pointerEvents="none";
-    }
-  }
-  canvas.addEventListener("pointerdown",e=>{if(revealed)return; scratching=true; lastX=null; lastY=null; canvas.setPointerCapture?.(e.pointerId); scratch(e)});
-  canvas.addEventListener("pointermove",e=>{if(scratching)scratch(e)});
-  canvas.addEventListener("pointerup",e=>{scratching=false;lastX=null;lastY=null;checkScratch()});
-  canvas.addEventListener("pointercancel",()=>{scratching=false;lastX=null;lastY=null});
-  window.addEventListener("resize",resizeScratch);
-  resizeScratch();
+  function eraseTo(x,y){ctx.globalCompositeOperation="destination-out";ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=54;ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(x,y);ctx.stroke();ctx.beginPath();ctx.arc(x,y,27,0,Math.PI*2);ctx.fill();lastX=x;lastY=y;}
+  function scratch(e){if(revealed)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(!scratching){lastX=x;lastY=y;}eraseTo(x,y);const now=performance.now();if(now-lastCheck>140){lastCheck=now;checkScratch();}}
+  function checkScratch(){const d=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<d.length;i+=16){total++;if(d[i]<20)clear++;}if(clear/total>=.45){revealed=true;canvas.style.transition="opacity .35s ease";canvas.style.opacity="0";canvas.style.pointerEvents="none";}}
+  canvas.addEventListener("pointerdown",e=>{e.preventDefault();scratching=true;canvas.setPointerCapture?.(e.pointerId);scratch(e);});
+  canvas.addEventListener("pointermove",e=>{if(scratching){e.preventDefault();scratch(e);}});
+  canvas.addEventListener("pointerup",()=>scratching=false);canvas.addEventListener("pointercancel",()=>scratching=false);
+  window.addEventListener("resize",resizeScratch);resizeScratch();
 
   // RSVP local save
   document.getElementById("rsvpForm").addEventListener("submit",e=>{
@@ -474,18 +415,6 @@
     if(music.paused){await music.play();musicBtn.textContent="❚❚";musicBtn.setAttribute("aria-label","Pause wedding music")}
     else{music.pause();musicBtn.textContent="♫";musicBtn.setAttribute("aria-label","Play wedding music")}
   });
-
-  // Active event navigation
-  const navLinks=[...document.querySelectorAll(".event-nav a")];
-  const sections=["mehendi","sangeet","haldi","wedding"].map(id=>document.getElementById(id));
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+entry.target.id));
-      }
-    });
-  },{threshold:.45});
-  sections.forEach(s=>observer.observe(s));
 
   // Smooth reveal on scroll
   const io=new IntersectionObserver(entries=>{

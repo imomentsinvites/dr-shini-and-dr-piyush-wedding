@@ -75,7 +75,7 @@
     h3{font-size:clamp(1.8rem,4vw,3rem);font-weight:600}
     .script{font-family:Italianno,cursive;font-weight:400}
     .hero{text-align:center;color:#fff}
-    .hero .bg{background-image:url("assets/02-intro-bg.jpg")}
+    .hero .bg{background-image:url("assets/02-intro-bg.JPG")}
     .hero .wash{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28))}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
@@ -104,7 +104,7 @@
     .intro-panel p{font-family:"Cormorant Garamond",serif;font-size:1.3rem;line-height:1.5}
 
     /* Scratch */
-    #scratch .bg{background-image:url("assets/02-intro-bg.jpg")}
+    #scratch .bg{background-image:url("assets/02-intro-bg.JPG")}
     .scratch-wrap{max-width:760px;margin:auto;text-align:center}
     .scratch-card{
       position:relative; width:min(650px,92vw); aspect-ratio:1.45/1; margin:30px auto;
@@ -118,7 +118,7 @@
     }
     .reveal small{letter-spacing:.2em;text-transform:uppercase}
     .reveal strong{display:block;font-family:"Cormorant Garamond";font-size:clamp(2.7rem,8vw,5rem);margin-top:10px}
-    .scratch-label{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-family:"Cormorant Garamond";font-size:clamp(1.3rem,4vw,2.2rem);font-weight:600;color:#633e35}
+    .scratch-label{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-family:"Cormorant Garamond";font-size:clamp(1.3rem,4vw,2.2rem);font-weight:600;color:#633e35;transition:opacity .25s}.scratch-card.revealed .scratch-label{opacity:0}
 
     /* Countdown */
     .countdown{text-align:center}
@@ -148,25 +148,6 @@
     .event-nav a:hover,.event-nav a.active{background:rgba(255,255,255,.18)}
 
     /* Generic content */
-    .light{background:#fbf2ea}
-    .center{text-align:center}
-    .section-title{text-align:center;margin-bottom:35px}
-    .section-title p{max-width:650px;margin:20px auto;font-family:"Cormorant Garamond";font-size:1.35rem}
-    .timeline{max-width:900px;margin:auto;position:relative}
-    .timeline:before{content:"";position:absolute;left:24px;top:0;bottom:0;width:1px;background:var(--line)}
-    .timeline-item{position:relative;padding:0 0 35px 70px}
-    .dot{position:absolute;left:15px;top:4px;width:19px;height:19px;border-radius:50%;background:var(--accent);border:4px solid #fbf2ea}
-    .timeline-item .meta{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
-    .timeline-item h3{margin:7px 0;font-size:2rem}
-    .timeline-item p{margin:4px 0;font-family:"Cormorant Garamond";font-size:1.25rem}
-
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .gallery button{padding:0;border:0;background:none;cursor:pointer;overflow:hidden;border-radius:20px;aspect-ratio:1/1}
-    .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-    .gallery button:hover img{transform:scale(1.05)}
-    .placeholder{
-      display:grid;place-items:center;background:linear-gradient(135deg,#eee0d7,#fff);color:#806860;font-family:"Cormorant Garamond";font-size:1.3rem;
-    }
 
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
     .card{padding:30px}
@@ -207,11 +188,6 @@
       border:1px solid rgba(255,255,255,.6);background:rgba(20,16,14,.72);color:#fff;cursor:pointer;backdrop-filter:blur(10px)
     }
 
-    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(12,9,8,.9);display:none;align-items:center;justify-content:center;padding:20px}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:95vw;max-height:88vh;border-radius:15px}
-    .lightbox button{position:absolute;top:20px;right:20px;border:0;background:#fff;color:#222;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.3rem}
-
     .reveal-toast{margin-top:10px;font-size:.85rem;opacity:.75}
     .success{margin-top:12px;color:#356b45;display:none}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -244,7 +220,6 @@
   <audio id="music" loop preload="none"></audio>
 
   <nav class="event-nav" aria-label="Wedding events">
-    <a href="#home">Home</a>
     <a href="#mehendi">Mehendi</a>
     <a href="#sangeet">Sangeet</a>
     <a href="#haldi">Haldi</a>
@@ -281,7 +256,7 @@
           <div class="scratch-label">SCRATCH TO REVEAL</div>
           <canvas id="scratchCanvas" aria-label="Scratch card"></canvas>
         </div>
-        <div class="reveal-toast">Scratch about halfway to reveal the wedding date.</div>
+        <div class="reveal-toast">Scratch with your finger or mouse.</div>
       </div>
     </section>
 
@@ -304,79 +279,25 @@
 
     <section class="section event" id="mehendi">
       <div class="bg" style="background-image:url('assets/01-mehendi-bg.JPG')"></div><div class="wash"></div>
-      <div class="content">
-        <div class="glass event-card">
-          <div class="eyebrow">Wedding Celebration</div>
-          <h2>Mehendi Ceremony</h2>
-          <div class="ornament">♥</div>
-          <div class="date">Thursday, 03 December 2026</div>
-          <div class="time">12:30 PM</div>
-          <div class="venue">⌖ Krishav Lawn, Raj Vilas Palace, Orchha (MP)</div>
-        </div>
-      </div>
       <img class="event-art" src="assets/mehendi-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
     <section class="section event" id="sangeet">
       <div class="bg" style="background-image:url('assets/02-intro-bg.JPG')"></div><div class="wash"></div>
-      <div class="content">
-        <div class="glass event-card">
-          <div class="eyebrow">Wedding Celebration</div>
-          <h2>Sangeet Ceremony</h2>
-          <div class="ornament">♥</div>
-          <div class="date">Thursday, 03 December 2026</div>
-          <div class="time">7:00 PM</div>
-          <div class="venue">⌖ Arnav Hall, Raj Vilas Palace, Orchha (MP)</div>
-        </div>
-      </div>
       <img class="event-art" src="assets/sangeet-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
     <section class="section event" id="haldi">
       <div class="bg" style="background-image:url('assets/06-haldi-bg.PNG')"></div><div class="wash"></div>
-      <div class="content">
-        <div class="glass event-card">
-          <div class="eyebrow">Wedding Celebration</div>
-          <h2>Haldi Ceremony</h2>
-          <div class="ornament">♥</div>
-          <div class="date">Friday, 04 December 2026</div>
-          <div class="time">11:00 AM</div>
-          <div class="venue">⌖ Utsav Courtyard, Raj Vilas Palace, Orchha (MP)</div>
-        </div>
-      </div>
       <img class="event-art" src="assets/haldi-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
     <section class="section event" id="wedding">
       <div class="bg" style="background-image:url('assets/04-wedding-bg.PNG')"></div><div class="wash"></div>
-      <div class="content">
-        <div class="glass event-card">
-          <div class="eyebrow">The Main Celebration</div>
-          <h2>Wedding Ceremony</h2>
-          <div class="ornament">♥</div>
-          <div class="date">Friday, 04 December 2026</div>
-          <div class="time">5:30 PM onwards</div>
-          <div class="venue">⌖ Chatarbhuj Lawn, Raj Vilas Palace, Orchha (MP)</div>
-        </div>
-      </div>
       <img class="event-art" src="assets/wedding-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
-    <section class="section light" id="timeline">
-      <div class="content">
-        <div class="section-title">
-          <div class="eyebrow">03 — 05 December 2026</div>
-          <h2 class="script">Wedding Celebrations</h2>
-          <div class="ornament">♥</div>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item"><span class="dot"></span><div class="meta">03 December 2026 · 12:30 PM</div><h3>Mehendi Ceremony</h3><p>Krishav Lawn, Raj Vilas Palace, Orchha (MP)</p></div>
-          <div class="timeline-item"><span class="dot"></span><div class="meta">03 December 2026 · 7:00 PM</div><h3>Sangeet Ceremony</h3><p>Arnav Hall, Raj Vilas Palace, Orchha (MP)</p></div>
-          <div class="timeline-item"><span class="dot"></span><div class="meta">04 December 2026 · 11:00 AM</div><h3>Haldi Ceremony</h3><p>Utsav Courtyard, Raj Vilas Palace, Orchha (MP)</p></div>
-          <div class="timeline-item"><span class="dot"></span><div class="meta">04 December 2026 · 5:30 PM onwards</div><h3>Wedding Ceremony</h3><p>Chatarbhuj Lawn, Raj Vilas Palace, Orchha (MP)</p></div>
-        </div>
-      </div>
-    </section>
+
 
 
 
@@ -469,50 +390,59 @@
   }
   tick(); setInterval(tick,1000);
 
-  // Scratch card
+  // Scratch card — smooth, fast brush + progressive reveal
   const canvas = document.getElementById("scratchCanvas");
   const card = document.getElementById("scratchCard");
   const ctx = canvas.getContext("2d", {willReadFrequently:true});
-  let scratching = false, revealed = false;
+  let scratching = false, revealed = false, lastX = 0, lastY = 0, lastCheck = 0;
 
   function resizeScratch(){
     const r = card.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = r.width*dpr; canvas.height = r.height*dpr;
+    canvas.width = Math.round(r.width*dpr); canvas.height = Math.round(r.height*dpr);
     canvas.style.width = r.width+"px"; canvas.style.height = r.height+"px";
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.globalCompositeOperation = "source-over";
     const g = ctx.createLinearGradient(0,0,r.width,r.height);
     g.addColorStop(0,"#b98775"); g.addColorStop(.5,"#e7c0b0"); g.addColorStop(1,"#a86b58");
     ctx.fillStyle = g; ctx.fillRect(0,0,r.width,r.height);
-    for(let i=0;i<180;i++){
-      ctx.fillStyle = `rgba(255,255,255,${Math.random()*.28})`;
-      const x=Math.random()*r.width,y=Math.random()*r.height,rad=Math.random()*3+1;
-      ctx.beginPath();ctx.arc(x,y,rad,0,Math.PI*2);ctx.fill();
-    }
-    ctx.fillStyle="rgba(255,255,255,.18)";
-    ctx.font="600 18px DM Sans";
-    ctx.textAlign="center";ctx.fillText("SCRATCH TO REVEAL",r.width/2,r.height/2);
+    ctx.fillStyle="rgba(255,255,255,.16)";
+    ctx.font="600 18px DM Sans"; ctx.textAlign="center";
+    ctx.fillText("SCRATCH TO REVEAL",r.width/2,r.height/2);
+  }
+
+  function point(e){
+    const r=canvas.getBoundingClientRect();
+    return {x:e.clientX-r.left,y:e.clientY-r.top};
+  }
+  function eraseLine(x1,y1,x2,y2){
+    ctx.globalCompositeOperation="destination-out";
+    ctx.lineCap="round"; ctx.lineJoin="round"; ctx.lineWidth=46;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
   }
   function scratch(e){
     if(revealed) return;
-    const r=canvas.getBoundingClientRect();
-    const p=e.touches ? e.touches[0] : e;
-    const x=p.clientX-r.left,y=p.clientY-r.top;
-    ctx.globalCompositeOperation="destination-out";
-    ctx.beginPath();ctx.arc(x,y,27,0,Math.PI*2);ctx.fill();
-    checkScratch();
+    const p=point(e);
+    if(lastX===null){lastX=p.x;lastY=p.y;}
+    eraseLine(lastX,lastY,p.x,p.y);
+    // Add a slightly wider center for a natural scratch feel without circles.
+    ctx.lineWidth=30; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+0.01,p.y+0.01); ctx.stroke();
+    lastX=p.x; lastY=p.y;
+    const now=performance.now();
+    if(now-lastCheck>140){lastCheck=now;checkScratch();}
   }
   function checkScratch(){
     const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
-    let clear=0;
-    for(let i=3;i<data.length;i+=32) if(data[i]===0) clear++;
-    if(clear/(data.length/32)>.45){
-      revealed=true; canvas.style.opacity="0"; canvas.style.pointerEvents="none"; document.querySelector(".scratch-label").style.opacity=".55";
+    let clear=0, total=0;
+    for(let i=3;i<data.length;i+=64){ total++; if(data[i]<30) clear++; }
+    // Reveal once roughly 45% is scratched.
+    if(total && clear/total>=.45){
+      revealed=true; card.classList.add("revealed"); canvas.style.opacity="0"; canvas.style.pointerEvents="none";
     }
   }
-  canvas.addEventListener("pointerdown",e=>{scratching=true;scratch(e)});
+  canvas.addEventListener("pointerdown",e=>{if(revealed)return; scratching=true; lastX=null; lastY=null; canvas.setPointerCapture?.(e.pointerId); scratch(e)});
   canvas.addEventListener("pointermove",e=>{if(scratching)scratch(e)});
-  window.addEventListener("pointerup",()=>scratching=false);
+  canvas.addEventListener("pointerup",e=>{scratching=false;lastX=null;lastY=null;checkScratch()});
+  canvas.addEventListener("pointercancel",()=>{scratching=false;lastX=null;lastY=null});
   window.addEventListener("resize",resizeScratch);
   resizeScratch();
 

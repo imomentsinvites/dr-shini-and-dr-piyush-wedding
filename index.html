@@ -269,7 +269,7 @@
     </section>
 
     <section class="section event" id="sangeet">
-      <div class="bg" style="background-image:url('assets/02-intro-bg.JPG')"></div><div class="wash"></div>
+      <div class="bg" style="background-image:url('assets/03-sangeet-bg.JPG')"></div><div class="wash"></div>
       <img class="event-art" src="assets/sangeet-couple.png" alt="" onerror="this.style.display='none'">
     </section>
 
@@ -306,18 +306,18 @@
 
     <section class="section light" id="venue">
       <div class="content">
-        <div class="section-title"><div class="eyebrow">Join us in Orchha</div><h2 class="script">The Wedding Venue</h2><div class="ornament">♥</div><p>Raj Vilas Palace, Orchha, Madhya Pradesh</p></div>
+        <div class="section-title"><div class="eyebrow">Join us in Orchha</div><h2 class="script">The Wedding Venue</h2><div class="ornament">♥</div><p>Raj Vilas The Palace, Orchha-Jhansi Road, Orchha, Madhya Pradesh 472246</p></div>
         <div class="two-col">
           <div class="card glass">
             <h3>Raj Vilas Palace</h3>
-            <p>Raj Vilas Palace, Orchha, Madhya Pradesh</p>
+            <p>Raj Vilas The Palace, Orchha-Jhansi Road, Orchha, Madhya Pradesh 472246</p>
             <div class="actions">
-              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Raj+Vilas+Palace+Orchha+Madhya+Pradesh">Open in Maps ↗</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Raj+Vilas+The+Palace+Orchha-Jhansi+Road+Orchha+Madhya+Pradesh+472246">Open in Maps ↗</a>
               <button class="btn secondary" id="copyAddress">Copy Address</button>
             </div>
           </div>
           <div class="map">
-            <iframe title="Raj Vilas Palace map" loading="lazy" src="https://www.google.com/maps?q=Raj%20Vilas%20Palace%20Orchha%20Madhya%20Pradesh&output=embed"></iframe>
+            <iframe title="Raj Vilas Palace map" loading="lazy" src="https://www.google.com/maps?q=Raj%20Vilas%20The%20Palace%2C%20Orchha-Jhansi%20Road%2C%20Orchha%2C%20Madhya%20Pradesh%20472246&output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -435,17 +435,13 @@
       setMusicUI(true);
       return true;
     }catch(err){
-      // Browser autoplay policy blocked playback; wait for user interaction.
       return false;
     }
   }
 
-  // Try immediately when the page opens.
   startMusic();
 
-  // If autoplay was blocked, the first tap/click anywhere starts the music.
-  function firstInteraction(e){
-    if(e.target.closest && e.target.closest("#musicBtn")) return;
+  function firstInteraction(){
     startMusic().then(started=>{
       if(started) document.removeEventListener("pointerdown",firstInteraction,true);
     });

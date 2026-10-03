@@ -26,13 +26,14 @@
       --radius:28px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;overscroll-behavior-y:none}
     body{
       margin:0;
       color:var(--ink);
       background:var(--paper);
       font-family:"DM Sans",sans-serif;
       overflow-x:hidden;
+      overscroll-behavior-y:none;
     }
     button,input,select,textarea{font:inherit}
     a{color:inherit}
@@ -77,13 +78,13 @@
     .hero .bg,.hero .wash{display:none}
     .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
     .intro-video-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.18))}
-    .intro-copy{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:0 24px;opacity:0;transform:translateY(18px);animation:introCopyIn 1.2s ease 2s forwards}
+    .intro-copy{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:0 24px;opacity:0;transform:translateY(18px);visibility:hidden}.intro-copy.is-visible{visibility:visible;animation:introCopyIn 1.2s ease forwards}
     .intro-copy .intro-eyebrow{font-family:"Cormorant Garamond",serif;font-size:clamp(.85rem,2.2vw,1.15rem);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;line-height:1.45}.intro-copy .intro-request{font-family:"Cormorant Garamond",serif;font-size:clamp(.85rem,2.2vw,1.15rem);letter-spacing:.08em;line-height:1.45;margin-bottom:22px}
     .intro-copy .intro-bride,.intro-copy .intro-groom{font-family:Italianno,cursive;font-size:clamp(4.5rem,16vw,9rem);line-height:.82;text-shadow:0 8px 30px rgba(0,0,0,.35)}
     .intro-copy .intro-with{font-family:"Cormorant Garamond",serif;font-size:clamp(1.2rem,3vw,1.8rem);letter-spacing:.18em;margin:16px 0}
     .intro-copy .intro-parents{font-family:"Cormorant Garamond",serif;font-size:clamp(.85rem,2.2vw,1.2rem);line-height:1.45;letter-spacing:.08em;margin-top:24px}
     @keyframes introCopyIn{to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion:reduce){.intro-copy{animation:none;opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.intro-copy{visibility:visible;animation:none;opacity:1;transform:none}}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
     .amp{font-family:Italianno,cursive;font-size:.72em;display:inline-block;margin:.05em .1em}
@@ -196,7 +197,7 @@
     .guest-message strong{font-family:"Cormorant Garamond";font-size:1.3rem}
     .guest-message p{margin:8px 0 0;color:var(--muted)}
 
-    .footer{text-align:center;min-height:0;height:auto;padding:90px 22px 0;display:flex;align-items:center;justify-content:center;margin:0;overflow:visible}.footer .content{margin:0 auto}.footer .names{margin-bottom:0}
+    .footer{text-align:center;display:block;min-height:0!important;height:auto!important;padding:90px 22px 0!important;margin:0!important;overflow:visible!important}.footer .content{width:min(1100px,100%);margin:0 auto;padding:0!important}.footer .names{margin:0!important;padding:0!important}
     .footer .names{font-family:"Cormorant Garamond";font-size:clamp(3rem,9vw,7rem)}
     .music{
       position:fixed;right:18px;top:18px;z-index:30;width:48px;height:48px;border-radius:50%;
@@ -226,8 +227,9 @@
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
     }
-      #thankyou{margin-bottom:0;padding-bottom:0}
-    body{padding-bottom:0}
+      #thankyou{min-height:0!important;height:auto!important;margin:0!important;padding:90px 22px 0!important}
+    main{display:block;margin:0;padding:0}
+    body{padding-bottom:0;margin-bottom:0}
   </style>
 </head>
 
@@ -461,6 +463,23 @@
   }
 
   startMusic();
+
+  // Reveal the invitation text only after the doors have opened.
+  // The current intro video reaches the fully-open doorway at about 6 seconds.
+  const introVideo=document.getElementById("introVideo");
+  const introCopy=document.querySelector(".intro-copy");
+  let introRevealed=false;
+  function revealIntroCopy(){
+    if(introRevealed) return;
+    introRevealed=true;
+    introCopy.classList.add("is-visible");
+  }
+  introVideo.addEventListener("timeupdate",()=>{
+    if(introVideo.currentTime>=6.0) revealIntroCopy();
+  });
+  introVideo.addEventListener("ended",revealIntroCopy);
+  introVideo.addEventListener("error",()=>setTimeout(revealIntroCopy,6000));
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) revealIntroCopy();
 
   function firstInteraction(){
     startMusic().then(started=>{

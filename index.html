@@ -88,9 +88,8 @@
     .intro-copy .intro-with{font-family:"Cormorant Garamond",serif;font-size:clamp(1.15rem,3vw,1.7rem);letter-spacing:.22em;margin:20px 0;color:#fff4e4;text-shadow:0 2px 6px rgba(0,0,0,.6)}
     .intro-copy .intro-parents{font-family:"Cormorant Garamond",serif;font-size:clamp(.8rem,2vw,1.05rem);line-height:1.5;letter-spacing:.09em;margin-top:28px}
     @media (max-width:600px){.intro-copy{top:52%;width:91%;padding:26px 14px 30px;border-radius:18px;background:linear-gradient(180deg,rgba(12,8,10,.08) 0%,rgba(12,8,10,.25) 12%,rgba(12,8,10,.36) 50%,rgba(12,8,10,.24) 86%,rgba(12,8,10,.05) 100%)}.intro-copy .intro-eyebrow{font-size:.82rem}.intro-copy .intro-request{font-size:.79rem;line-height:1.5}.intro-copy .intro-bride,.intro-copy .intro-groom{font-size:clamp(4rem,17vw,6.5rem)}.intro-copy .intro-with{font-size:1.25rem;margin:15px 0}.intro-copy .intro-parents{font-size:.8rem}}
-    @keyframes introCopyIn{to{opacity:1;transform:translate(-50%,0)}}
-    @media (max-width:600px){.intro-copy{top:52%;width:92%;padding:26px 14px}.intro-copy .intro-eyebrow{font-size:.82rem}.intro-copy .intro-request{font-size:.79rem;line-height:1.5}.intro-copy .intro-bride,.intro-copy .intro-groom{font-size:clamp(4rem,17vw,6.5rem)}.intro-copy .intro-with{font-size:1.25rem;margin:15px 0}.intro-copy .intro-parents{font-size:.8rem}}
-    @media (prefers-reduced-motion:reduce){.intro-copy{visibility:visible;animation:none;opacity:1;transform:translate(-50%,0)}}
+    @keyframes introCopyIn{from{opacity:0;transform:translate(-50%,-50%)}to{opacity:1;transform:translate(-50%,-50%)}}
+    @media (prefers-reduced-motion:reduce){.intro-copy{visibility:visible;animation:none;opacity:1;transform:translate(-50%,-50%)}}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
     .amp{font-family:Italianno,cursive;font-size:.72em;display:inline-block;margin:.05em .1em}

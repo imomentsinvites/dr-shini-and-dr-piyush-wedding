@@ -481,10 +481,10 @@
     introCopy.classList.add("is-visible");
   }
   introVideo.addEventListener("timeupdate",()=>{
-    if(introVideo.currentTime>=6.0) revealIntroCopy();
+    if(introVideo.currentTime>=7.0) revealIntroCopy();
   });
   introVideo.addEventListener("ended",revealIntroCopy);
-  introVideo.addEventListener("error",()=>setTimeout(revealIntroCopy,6000));
+  introVideo.addEventListener("error",()=>setTimeout(revealIntroCopy,7000));
   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) revealIntroCopy();
 
   function firstInteraction(){

@@ -4,104 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <meta
-    name="theme-color"
-    content="#fff8f2"
-  >
-
+  <meta name="theme-color" content="#fff8f2">
   <meta
     name="description"
     content="Wedding invitation for Dr. Shini & Dr. Piyush — Orchha, Madhya Pradesh, 03–05 December 2026."
   >
 
-  <meta
-    property="og:title"
-    content="Dr. Shini & Dr. Piyush | Wedding Invitation"
-  >
-
+  <meta property="og:title" content="Dr. Shini & Dr. Piyush | Wedding Invitation">
   <meta
     property="og:description"
     content="Join Dr. Shini & Dr. Piyush as they celebrate their wedding in Orchha, Madhya Pradesh."
   >
 
-  <title>
-    Dr. Shini & Dr. Piyush | Wedding Invitation
-  </title>
-
-
-  <!-- =========================================================
-       FONTS
-       ========================================================= -->
+  <title>Dr. Shini & Dr. Piyush | Wedding Invitation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Italianno&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Italianno&display=swap"
     rel="stylesheet"
   >
 
-
   <style>
 
-    /* =========================================================
-       ROOT
-       ========================================================= */
-
     :root{
-
       --ink:#3d2926;
       --muted:#765f59;
       --paper:#fff8f2;
-
       --glass:rgba(255,255,255,.72);
-
       --line:rgba(61,41,38,.18);
-
       --accent:#a55c3c;
       --gold:#b78b50;
-
-      --shadow:
-        0 18px 60px rgba(55,34,25,.15);
-
+      --shadow:0 18px 60px rgba(55,34,25,.15);
       --radius:28px;
     }
-
-
-    /* =========================================================
-       GLOBAL
-       ========================================================= */
 
     *{
       box-sizing:border-box;
     }
-
 
     html{
       scroll-behavior:smooth;
       overscroll-behavior-y:none;
     }
 
-
     body{
       margin:0;
-
       color:var(--ink);
-
       background:var(--paper);
-
       font-family:"DM Sans",sans-serif;
-
       overflow-x:hidden;
-
       overscroll-behavior-y:none;
     }
-
 
     button,
     input,
@@ -110,136 +65,82 @@
       font:inherit;
     }
 
-
     a{
       color:inherit;
     }
 
-
-    /* =========================================================
-       GENERAL SECTION
-       ========================================================= */
-
     .section{
-
       position:relative;
-
       padding:90px 22px;
-
       display:flex;
-
       align-items:center;
-
       justify-content:center;
-
       isolation:isolate;
-
       overflow:hidden;
     }
 
-
     .bg{
-
       position:absolute;
-
       inset:0;
-
       z-index:-3;
-
       background-size:cover;
-
       background-position:center;
-
       background-repeat:no-repeat;
     }
 
-
     .wash{
-
       position:absolute;
-
       inset:0;
-
       z-index:-2;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.06),
-          rgba(255,248,242,.18)
-        );
-
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,248,242,.18)
+      );
       pointer-events:none;
     }
 
-
     .content{
-
       width:min(1100px,100%);
-
       margin:auto;
     }
 
-
     .eyebrow{
-
       text-transform:uppercase;
-
       letter-spacing:.22em;
-
       font-size:.72rem;
-
       font-weight:600;
-
       opacity:.78;
-
       margin-bottom:16px;
     }
-
 
     h1,
     h2,
     h3,
     .script{
-
       font-family:"Cormorant Garamond",serif;
-
       margin:0;
     }
 
-
     h1{
-
       font-size:clamp(3.2rem,11vw,8.5rem);
-
       line-height:.86;
-
       font-weight:500;
     }
-
 
     h2{
-
       font-size:clamp(2.7rem,7vw,5.8rem);
-
       line-height:.95;
-
       font-weight:500;
     }
 
-
     h3{
-
       font-size:clamp(1.8rem,4vw,3rem);
-
       font-weight:600;
     }
 
-
     .script{
-
       font-family:Italianno,cursive;
-
       font-weight:400;
     }
 
@@ -249,92 +150,59 @@
        ========================================================= */
 
     .hero{
-
       min-height:100svh;
-
       height:100svh;
-
       padding:0;
-
       text-align:center;
-
       color:#4b2b2d;
     }
 
-
     .hero .bg,
     .hero .wash{
-
       display:none;
     }
 
-
-    /* =========================================================
-       INTRO VIDEO
-       ========================================================= */
-
     .intro-video{
-
       position:absolute;
-
       inset:0;
-
       width:100%;
-
       height:100%;
-
       object-fit:cover;
-
       object-position:center;
-
       z-index:-2;
     }
 
-
     /*
-      Very subtle cinematic tone.
-
-      The video remains bright and dreamy.
-      We do NOT place a dark rectangle over it.
+      Very subtle overall tone.
+      Keeps the video bright and romantic.
     */
-
     .intro-video-overlay{
-
       position:absolute;
-
       inset:0;
-
       z-index:-1;
-
-      pointer-events:none;
 
       background:
         linear-gradient(
           180deg,
-          rgba(48,31,28,.10) 0%,
-          rgba(48,31,28,.025) 42%,
-          rgba(48,31,28,.06) 68%,
-          rgba(38,24,21,.18) 100%
+          rgba(70,45,35,.06),
+          rgba(70,45,35,.10)
         );
+
+      pointer-events:none;
     }
 
 
     /* =========================================================
-       TAP TO OPEN
+       OPEN BUTTON
        ========================================================= */
 
     .intro-open{
-
       position:absolute;
-
       inset:0;
-
       z-index:20;
 
       display:flex;
-
       align-items:flex-end;
-
       justify-content:center;
 
       padding:0 20px 8vh;
@@ -350,57 +218,41 @@
       cursor:pointer;
     }
 
-
     .intro-open.hidden{
-
       opacity:0;
-
       visibility:hidden;
-
       pointer-events:none;
     }
 
-
     .intro-open-pill{
-
       display:inline-flex;
 
       align-items:center;
-
       justify-content:center;
 
       min-width:250px;
 
       padding:13px 26px;
 
-      border:
-        1px solid rgba(255,248,238,.55);
-
+      border:1px solid rgba(255,248,238,.55);
       border-radius:999px;
 
-      background:
-        rgba(35,22,25,.48);
+      background:rgba(35,22,25,.48);
 
       backdrop-filter:blur(7px);
-
       -webkit-backdrop-filter:blur(7px);
 
       box-shadow:
-
         0 8px 28px rgba(0,0,0,.18),
-
-        inset
-        0 1px 0
-        rgba(255,255,255,.16);
+        inset 0 1px 0 rgba(255,255,255,.16);
 
       color:#fff8ed;
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(.95rem,2.7vw,1.2rem);
+      font-size:clamp(.95rem,2.7vw,1.2rem);
 
-      font-weight:500;
+      font-weight:600;
 
       letter-spacing:.18em;
 
@@ -412,16 +264,14 @@
 
 
     /* =========================================================
-       INTRO SCROLL INDICATOR
+       SCROLL INDICATOR
        ========================================================= */
 
     .intro-scroll{
-
       position:absolute;
 
       left:50%;
-
-      bottom:25px;
+      bottom:22px;
 
       z-index:15;
 
@@ -431,109 +281,81 @@
 
       align-items:center;
 
-      gap:6px;
+      gap:5px;
 
       color:#fff8ed;
 
       opacity:0;
-
       visibility:hidden;
 
-      transform:
-        translate(-50%,10px);
+      transform:translate(-50%,10px);
 
       transition:
-
         opacity .8s ease,
-
         transform .8s ease,
-
         visibility .8s ease;
 
       pointer-events:none;
 
       text-shadow:
-
-        0 2px 8px rgba(35,22,18,.7),
-
-        0 0 5px rgba(255,240,220,.25);
+        0 2px 8px rgba(0,0,0,.65);
     }
-
 
     .intro-scroll.show{
-
       opacity:1;
-
       visibility:visible;
-
-      transform:
-        translate(-50%,0);
+      transform:translate(-50%,0);
     }
 
-
     .intro-scroll-label{
-
       font-family:"DM Sans",sans-serif;
 
       font-size:.67rem;
 
-      font-weight:600;
+      font-weight:700;
 
       letter-spacing:.28em;
 
       text-transform:uppercase;
     }
 
-
     .intro-scroll-arrow{
-
       font-size:1.5rem;
-
       line-height:1;
 
-      animation:
-        introArrow 1.7s ease-in-out infinite;
+      animation:introArrow 1.7s ease-in-out infinite;
     }
 
-
     @keyframes introArrow{
-
       50%{
         transform:translateY(7px);
       }
-
     }
 
 
     /* =========================================================
-       INTRO COPY
+       INTRO TEXT — UPDATED
        ========================================================= */
 
-    /*
-      No rectangle.
-      No glass.
-      No visible panel.
-
-      A soft champagne radial glow is placed
-      behind the typography so it feels
-      illuminated by the sunset itself.
-    */
-
     .intro-copy{
-
       position:absolute;
 
       z-index:5;
 
       left:50%;
 
-      top:49%;
+      /*
+        MOVED UP:
+        This keeps the parents' names away from the
+        darker palace/building area.
+      */
+      top:44%;
 
-      width:min(92%,760px);
+      width:min(92%,780px);
 
       margin:0;
 
-      padding:22px 18px 26px;
+      padding:26px 20px 30px;
 
       text-align:center;
 
@@ -541,8 +363,7 @@
 
       visibility:hidden;
 
-      transform:
-        translate(-50%,-50%);
+      transform:translate(-50%,-50%);
 
       background:transparent;
 
@@ -551,17 +372,20 @@
       box-shadow:none;
 
       backdrop-filter:none;
-
       -webkit-backdrop-filter:none;
     }
 
 
-    /* =========================================================
-       SOFT LIGHT BEHIND TEXT
-       ========================================================= */
+    /*
+      SOFT LIGHT HALO
+      ----------------
+      Not a rectangle.
+      It creates a very subtle warm glow behind the
+      complete text group so clouds/buildings don't
+      interfere with readability.
+    */
 
     .intro-copy::before{
-
       content:"";
 
       position:absolute;
@@ -569,38 +393,29 @@
       z-index:-1;
 
       left:50%;
-
       top:50%;
 
       width:125%;
-
       height:125%;
 
-      transform:
-        translate(-50%,-50%);
+      transform:translate(-50%,-50%);
 
       background:
-
         radial-gradient(
           ellipse at center,
-
-          rgba(255,239,218,.30) 0%,
-
-          rgba(255,231,205,.18) 30%,
-
-          rgba(255,220,190,.07) 55%,
-
-          transparent 75%
+          rgba(255,244,226,.38) 0%,
+          rgba(255,240,220,.24) 32%,
+          rgba(255,235,215,.10) 55%,
+          rgba(255,235,215,0) 75%
         );
 
-      filter:blur(12px);
+      filter:blur(14px);
 
       pointer-events:none;
     }
 
 
     .intro-copy.is-visible{
-
       visibility:visible;
 
       animation:
@@ -609,62 +424,66 @@
 
 
     /* =========================================================
-       INTRO EYEBROW
+       UPPER TEXT
        ========================================================= */
 
     .intro-copy .intro-eyebrow{
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(.78rem,2vw,1.05rem);
+      font-size:clamp(.92rem,2.35vw,1.2rem);
 
-      letter-spacing:.13em;
+      /*
+        BOLDER
+      */
+      font-weight:600;
+
+      letter-spacing:.105em;
 
       text-transform:uppercase;
 
       margin-bottom:14px;
 
-      line-height:1.45;
+      line-height:1.42;
 
-      color:rgba(73,48,43,.92);
+      color:#553a32;
 
       text-shadow:
-
-        0 1px 1px
-        rgba(255,247,234,.95),
-
-        0 0 8px
-        rgba(255,238,216,.75);
+        0 0 2px rgba(255,249,237,1),
+        0 0 7px rgba(255,249,237,.95),
+        0 1px 1px rgba(255,255,255,.8),
+        0 2px 5px rgba(42,25,19,.45);
     }
 
 
     /* =========================================================
-       INTRO REQUEST
+       REQUEST TEXT
        ========================================================= */
 
     .intro-copy .intro-request{
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(.76rem,1.9vw,1.02rem);
+      font-size:clamp(.88rem,2.25vw,1.14rem);
 
-      letter-spacing:.09em;
+      /*
+        BOLDER
+      */
+      font-weight:600;
 
-      line-height:1.55;
+      letter-spacing:.085em;
+
+      line-height:1.5;
 
       margin-bottom:20px;
 
-      color:rgba(73,48,43,.90);
+      color:#51372f;
 
       text-shadow:
-
-        0 1px 1px
-        rgba(255,247,234,.95),
-
-        0 0 8px
-        rgba(255,238,216,.72);
+        0 0 2px rgba(255,249,237,1),
+        0 0 8px rgba(255,249,237,.95),
+        0 1px 1px rgba(255,255,255,.75),
+        0 2px 5px rgba(42,25,19,.42);
     }
 
 
@@ -677,23 +496,20 @@
 
       font-family:Italianno,cursive;
 
-      font-size:
-        clamp(4.1rem,14vw,7.6rem);
+      font-size:clamp(4.2rem,15.5vw,8.7rem);
 
-      line-height:.78;
+      line-height:.80;
 
-      color:#fff5e3;
+      color:#fff3df;
 
+      /*
+        Stronger dimensional champagne effect.
+      */
       text-shadow:
-
-        0 1px 1px
-        rgba(255,255,255,.85),
-
-        0 3px 5px
-        rgba(70,39,29,.48),
-
-        0 8px 18px
-        rgba(55,30,23,.25);
+        0 1px 1px rgba(255,255,255,.95),
+        0 2px 2px rgba(255,255,255,.45),
+        0 3px 4px rgba(65,38,28,.82),
+        0 6px 14px rgba(45,25,18,.50);
     }
 
 
@@ -705,75 +521,80 @@
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(1rem,2.6vw,1.45rem);
+      font-size:clamp(1.15rem,3vw,1.7rem);
 
-      letter-spacing:.32em;
+      /*
+        BOLDER
+      */
+      font-weight:600;
 
-      margin:18px 0 20px;
+      letter-spacing:.24em;
 
-      color:#5b4036;
+      margin:16px 0;
+
+      color:#553a32;
 
       text-shadow:
-
-        0 1px 1px
-        rgba(255,248,235,.95),
-
-        0 0 7px
-        rgba(255,238,216,.75);
+        0 0 3px rgba(255,249,237,1),
+        0 0 8px rgba(255,249,237,.95),
+        0 1px 1px rgba(255,255,255,.75),
+        0 2px 5px rgba(42,25,19,.42);
     }
 
 
     /* =========================================================
-       PARENTS
+       GROOM'S PARENTS
        ========================================================= */
 
     .intro-copy .intro-parents{
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(.72rem,1.8vw,.98rem);
+      font-size:clamp(.9rem,2.25vw,1.12rem);
 
-      line-height:1.45;
+      /*
+        IMPORTANT:
+        The parents are now LIGHT rather than dark,
+        because this section of the video contains
+        the darker palace.
+      */
+      color:#fff3df;
 
-      letter-spacing:.12em;
+      /*
+        BOLDER
+      */
+      font-weight:600;
 
-      margin-top:18px;
+      line-height:1.48;
 
-      color:rgba(73,48,43,.88);
+      letter-spacing:.105em;
+
+      margin-top:22px;
 
       text-shadow:
-
-        0 1px 1px
-        rgba(255,247,234,.95),
-
-        0 0 7px
-        rgba(255,238,216,.72);
+        0 0 2px rgba(72,40,27,.95),
+        0 0 5px rgba(72,40,27,.90),
+        0 2px 5px rgba(35,20,14,.75),
+        0 3px 9px rgba(35,20,14,.50);
     }
 
-
-    /* =========================================================
-       INTRO ANIMATION
-       ========================================================= */
 
     @keyframes introCopyIn{
 
       from{
-
         opacity:0;
 
         transform:
-          translate(-50%,-50%);
+          translate(-50%,-50%)
+          translateY(10px);
       }
 
-
       to{
-
         opacity:1;
 
         transform:
-          translate(-50%,-50%);
+          translate(-50%,-50%)
+          translateY(0);
       }
 
     }
@@ -787,97 +608,156 @@
 
       .intro-copy{
 
-        top:48.5%;
+        /*
+          Slightly higher on mobile.
+        */
+        top:43%;
 
         width:94%;
 
-        padding:20px 10px 22px;
+        padding:
+          22px
+          10px
+          25px;
       }
 
 
       .intro-copy::before{
 
         width:135%;
+        height:135%;
 
-        height:125%;
+        filter:blur(15px);
 
         background:
-
           radial-gradient(
             ellipse at center,
-
-            rgba(255,239,218,.32) 0%,
-
-            rgba(255,231,205,.18) 32%,
-
-            rgba(255,220,190,.06) 58%,
-
-            transparent 76%
+            rgba(255,244,226,.42) 0%,
+            rgba(255,240,220,.25) 34%,
+            rgba(255,235,215,.09) 58%,
+            rgba(255,235,215,0) 78%
           );
-
-        filter:blur(10px);
       }
 
 
       .intro-copy .intro-eyebrow{
 
-        font-size:.76rem;
+        font-size:.83rem;
 
-        letter-spacing:.12em;
+        font-weight:600;
 
-        margin-bottom:11px;
+        letter-spacing:.085em;
+
+        line-height:1.4;
+
+        margin-bottom:12px;
       }
 
 
       .intro-copy .intro-request{
 
-        font-size:.73rem;
+        font-size:.80rem;
+
+        font-weight:600;
 
         line-height:1.48;
 
-        letter-spacing:.075em;
+        letter-spacing:.065em;
 
-        margin-bottom:17px;
+        margin-bottom:18px;
       }
 
 
       .intro-copy .intro-bride,
       .intro-copy .intro-groom{
 
-        font-size:
-          clamp(3.9rem,16vw,6rem);
+        /*
+          Slightly smaller than before so that
+          parents have enough breathing room.
+        */
+        font-size:clamp(
+          3.9rem,
+          16.5vw,
+          6.3rem
+        );
 
-        line-height:.78;
+        line-height:.80;
       }
 
 
       .intro-copy .intro-with{
 
-        font-size:1.08rem;
+        font-size:1.22rem;
 
-        letter-spacing:.28em;
+        font-weight:600;
 
-        margin:15px 0 17px;
+        letter-spacing:.22em;
+
+        margin:14px 0;
       }
 
 
       .intro-copy .intro-parents{
 
-        font-size:.72rem;
+        font-size:.80rem;
 
-        line-height:1.4;
+        font-weight:600;
 
-        letter-spacing:.105em;
+        line-height:1.45;
 
-        margin-top:16px;
+        letter-spacing:.075em;
+
+        margin-top:20px;
+
+        /*
+          Extra readability specifically for
+          the building area.
+        */
+        text-shadow:
+          0 0 2px rgba(255,247,232,.75),
+          0 0 4px rgba(48,27,19,.95),
+          0 2px 5px rgba(30,17,12,.85),
+          0 3px 9px rgba(30,17,12,.55);
       }
 
     }
 
 
-    /* =========================================================
-       REDUCED MOTION
-       ========================================================= */
+    @media (max-width:380px){
+
+      .intro-copy{
+
+        top:41.5%;
+
+      }
+
+      .intro-copy .intro-bride,
+      .intro-copy .intro-groom{
+
+        font-size:3.75rem;
+
+      }
+
+      .intro-copy .intro-eyebrow{
+
+        font-size:.76rem;
+
+      }
+
+      .intro-copy .intro-request{
+
+        font-size:.74rem;
+
+      }
+
+      .intro-copy .intro-parents{
+
+        font-size:.74rem;
+
+      }
+
+    }
+
 
     @media (prefers-reduced-motion:reduce){
 
@@ -896,54 +776,34 @@
     }
 
 
-    /* =========================================================
-       HERO OTHER STYLES
-       ========================================================= */
-
     .hero-inner{
-
       max-width:950px;
     }
 
-
     .names{
-
       letter-spacing:.01em;
-
-      text-shadow:
-        0 8px 30px rgba(0,0,0,.25);
+      text-shadow:0 8px 30px rgba(0,0,0,.25);
     }
 
-
     .amp{
-
       font-family:Italianno,cursive;
-
       font-size:.72em;
-
       display:inline-block;
-
       margin:.05em .1em;
     }
 
-
     .hero-copy{
-
       max-width:620px;
-
       margin:30px auto 0;
 
       font-family:"Cormorant Garamond",serif;
 
-      font-size:
-        clamp(1.2rem,3vw,1.8rem);
+      font-size:clamp(1.2rem,3vw,1.8rem);
 
       line-height:1.35;
     }
 
-
     .scroll{
-
       margin-top:55px;
 
       display:inline-flex;
@@ -967,15 +827,10 @@
       font-size:.68rem;
     }
 
-
     .scroll span:last-child{
-
       font-size:1.3rem;
-
-      animation:
-        bob 1.8s ease-in-out infinite;
+      animation:bob 1.8s ease-in-out infinite;
     }
-
 
     @keyframes bob{
 
@@ -991,13 +846,10 @@
        ========================================================= */
 
     .section-title{
-
       text-align:center;
     }
 
-
     .ornament{
-
       display:flex;
 
       align-items:center;
@@ -1009,10 +861,8 @@
       margin:25px auto;
     }
 
-
     .ornament:before,
     .ornament:after{
-
       content:"";
 
       height:1px;
@@ -1024,23 +874,16 @@
       opacity:.35;
     }
 
-
     .heart{
-
       font-size:1.05rem;
     }
 
-
     .glass{
-
       background:var(--glass);
 
-      border:
-        1px solid
-        rgba(255,255,255,.7);
+      border:1px solid rgba(255,255,255,.7);
 
       backdrop-filter:blur(14px);
-
       -webkit-backdrop-filter:blur(14px);
 
       box-shadow:var(--shadow);
@@ -1050,21 +893,18 @@
 
 
     /* =========================================================
-       INTRODUCTION PANEL
+       INTRODUCTION
        ========================================================= */
 
     .intro-panel{
-
       max-width:800px;
 
       margin:auto;
 
       text-align:center;
 
-      padding:
-        clamp(28px,6vw,65px);
+      padding:clamp(28px,6vw,65px);
     }
-
 
     .intro-panel p{
 
@@ -1081,19 +921,14 @@
        ========================================================= */
 
     #scratch .bg{
-
       display:none;
     }
-
 
     #scratch .wash{
-
       display:none;
     }
 
-
     .scratch-wrap{
-
       max-width:760px;
 
       margin:auto;
@@ -1101,39 +936,29 @@
       text-align:center;
     }
 
-
     .scratch-intro{
-
       font-family:"Cormorant Garamond",serif;
 
       margin-bottom:18px;
     }
 
-
     .scratch-intro .eyebrow{
-
       margin-bottom:8px;
     }
 
-
     .scratch-intro h2{
-
-      font-size:
-        clamp(2.3rem,6vw,4.2rem);
+      font-size:clamp(2.3rem,6vw,4.2rem);
 
       line-height:1;
     }
 
-
     .scratch-intro p{
-
       margin:10px 0 0;
 
       color:var(--muted);
 
       font-size:1rem;
     }
-
 
     .scratch-card{
 
@@ -1148,77 +973,46 @@
       overflow:hidden;
 
       background:
-
         linear-gradient(
           145deg,
           #fffaf5,
           #f1e0d3
         );
 
-      border:
-        1px solid
-        rgba(61,41,38,.12);
+      border:1px solid rgba(61,41,38,.12);
 
       box-shadow:
-        0 18px 50px
-        rgba(55,34,25,.14);
+        0 18px 50px rgba(55,34,25,.14);
 
       clip-path:polygon(
-
         50% 94%,
-
         42% 87%,
-
         32% 79%,
-
         22% 70%,
-
         13% 61%,
-
         7% 52%,
-
         4% 42%,
-
         5% 31%,
-
         10% 21%,
-
         18% 13%,
-
         28% 9%,
-
         38% 10%,
-
         46% 15%,
-
         50% 22%,
-
         54% 15%,
-
         62% 10%,
-
         72% 9%,
-
         82% 13%,
-
         90% 21%,
-
         95% 31%,
-
         96% 42%,
-
         93% 52%,
-
         87% 61%,
-
         78% 70%,
-
         68% 79%,
-
         58% 87%
       );
     }
-
 
     #scratchCanvas{
 
@@ -1227,14 +1021,12 @@
       inset:0;
 
       width:100%;
-
       height:100%;
 
       touch-action:none;
 
       cursor:crosshair;
     }
-
 
     .reveal{
 
@@ -1251,14 +1043,12 @@
       padding:30px;
 
       background:
-
         linear-gradient(
           145deg,
           #fffaf5,
           #f4e7dc
         );
     }
-
 
     .reveal small{
 
@@ -1267,15 +1057,17 @@
       text-transform:uppercase;
     }
 
-
     .reveal strong{
 
       display:block;
 
       font-family:"Cormorant Garamond";
 
-      font-size:
-        clamp(2.7rem,8vw,5rem);
+      font-size:clamp(
+        2.7rem,
+        8vw,
+        5rem
+      );
 
       margin-top:10px;
     }
@@ -1286,17 +1078,14 @@
        ========================================================= */
 
     .countdown{
-
       text-align:center;
     }
-
 
     .countdown-grid{
 
       display:grid;
 
-      grid-template-columns:
-        repeat(4,1fr);
+      grid-template-columns:repeat(4,1fr);
 
       gap:15px;
 
@@ -1304,7 +1093,6 @@
 
       margin:35px auto;
     }
-
 
     .timebox{
 
@@ -1314,13 +1102,10 @@
 
       background:var(--glass);
 
-      border:
-        1px solid
-        rgba(255,255,255,.8);
+      border:1px solid rgba(255,255,255,.8);
 
       box-shadow:var(--shadow);
     }
-
 
     .timebox strong{
 
@@ -1328,12 +1113,14 @@
 
       font-family:"Cormorant Garamond";
 
-      font-size:
-        clamp(2.4rem,7vw,4.5rem);
+      font-size:clamp(
+        2.4rem,
+        7vw,
+        4.5rem
+      );
 
       font-weight:600;
     }
-
 
     .timebox span{
 
@@ -1362,11 +1149,9 @@
       padding:0;
     }
 
-
     .event .wash{
 
       background:
-
         linear-gradient(
           180deg,
           rgba(0,0,0,.04),
@@ -1374,23 +1159,22 @@
         );
     }
 
-
     .event-card{
-
       display:none;
     }
-
 
     .event-card .date{
 
       font-family:"Cormorant Garamond";
 
-      font-size:
-        clamp(1.2rem,3vw,1.65rem);
+      font-size:clamp(
+        1.2rem,
+        3vw,
+        1.65rem
+      );
 
       margin:15px 0;
     }
-
 
     .event-card .time{
 
@@ -1401,35 +1185,28 @@
       text-transform:uppercase;
     }
 
-
     .event-card .venue{
 
       font-family:"Cormorant Garamond";
 
-      font-size:
-        clamp(1.15rem,3vw,1.55rem);
+      font-size:clamp(
+        1.15rem,
+        3vw,
+        1.55rem
+      );
 
       line-height:1.35;
 
       margin-top:18px;
     }
 
-
     .event-card .pin{
-
       margin-right:6px;
     }
 
-
     .event-art{
-
       display:none;
     }
-
-
-    /* =========================================================
-       EVENT NAV
-       ========================================================= */
 
     .event-nav{
 
@@ -1441,8 +1218,7 @@
 
       bottom:18px;
 
-      transform:
-        translateX(-50%);
+      transform:translateX(-50%);
 
       display:flex;
 
@@ -1452,18 +1228,15 @@
 
       border-radius:999px;
 
-      background:
-        rgba(25,20,18,.78);
+      background:rgba(25,20,18,.78);
 
       backdrop-filter:blur(14px);
 
       -webkit-backdrop-filter:blur(14px);
 
       box-shadow:
-        0 12px 35px
-        rgba(0,0,0,.2);
+        0 12px 35px rgba(0,0,0,.2);
     }
-
 
     .event-nav a{
 
@@ -1482,12 +1255,9 @@
       white-space:nowrap;
     }
 
-
     .event-nav a:hover,
     .event-nav a.active{
-
-      background:
-        rgba(255,255,255,.18);
+      background:rgba(255,255,255,.18);
     }
 
 
@@ -1506,14 +1276,12 @@
       text-align:center;
     }
 
-
     .card{
 
       padding:30px;
 
       text-align:center;
     }
-
 
     .card p{
 
@@ -1522,19 +1290,20 @@
       color:var(--muted);
     }
 
-
     .form{
 
       max-width:850px;
 
       margin:auto;
 
-      padding:
-        clamp(25px,5vw,50px);
+      padding:clamp(
+        25px,
+        5vw,
+        50px
+      );
 
       text-align:left;
     }
-
 
     .fields{
 
@@ -1546,7 +1315,6 @@
 
       text-align:left;
     }
-
 
     label{
 
@@ -1561,29 +1329,24 @@
       text-align:left;
     }
 
-
     input,
     select,
     textarea{
 
       width:100%;
 
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
 
       border-radius:14px;
 
       padding:13px 14px;
 
-      background:
-        rgba(255,255,255,.7);
+      background:rgba(255,255,255,.7);
 
       color:var(--ink);
 
       outline:none;
     }
-
 
     textarea{
 
@@ -1592,18 +1355,13 @@
       resize:vertical;
     }
 
-
     .full{
-
       grid-column:1/-1;
     }
 
-
     .rsvp-submit{
-
       text-align:center;
     }
-
 
     .btn{
 
@@ -1626,27 +1384,20 @@
       margin-top:8px;
     }
 
-
     .btn:hover{
 
-      transform:
-        translateY(-2px);
+      transform:translateY(-2px);
 
       opacity:.9;
     }
 
-
     #venue .card{
-
       text-align:center;
     }
 
-
     #venue .actions{
-
       justify-content:center;
     }
-
 
     .map{
 
@@ -1661,7 +1412,6 @@
       box-shadow:var(--shadow);
     }
 
-
     .map iframe{
 
       width:100%;
@@ -1673,7 +1423,6 @@
       border:0;
     }
 
-
     .actions{
 
       display:flex;
@@ -1684,7 +1433,6 @@
 
       margin-top:18px;
     }
-
 
     .actions .btn{
 
@@ -1699,16 +1447,13 @@
       justify-content:center;
     }
 
-
     .btn.secondary{
 
       background:transparent;
 
       color:var(--ink);
 
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
     }
 
 
@@ -1723,15 +1468,11 @@
       margin:auto;
     }
 
-
     details{
 
-      background:
-        rgba(255,255,255,.65);
+      background:rgba(255,255,255,.65);
 
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
 
       border-radius:18px;
 
@@ -1739,7 +1480,6 @@
 
       padding:18px 20px;
     }
-
 
     summary{
 
@@ -1751,7 +1491,6 @@
 
       font-weight:600;
     }
-
 
     details p{
 
@@ -1774,21 +1513,16 @@
       margin-top:25px;
     }
 
-
     .guest-message{
 
       padding:20px;
 
       border-radius:20px;
 
-      background:
-        rgba(255,255,255,.65);
+      background:rgba(255,255,255,.65);
 
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
     }
-
 
     .guest-message strong{
 
@@ -1796,7 +1530,6 @@
 
       font-size:1.3rem;
     }
-
 
     .guest-message p{
 
@@ -1827,7 +1560,6 @@
       overflow:visible !important;
     }
 
-
     .footer .content{
 
       width:min(1100px,100%);
@@ -1837,7 +1569,6 @@
       padding:0 !important;
     }
 
-
     .footer .names{
 
       margin:0 !important;
@@ -1845,13 +1576,15 @@
       padding:0 !important;
     }
 
-
     .footer .names{
 
       font-family:"Cormorant Garamond";
 
-      font-size:
-        clamp(3rem,9vw,7rem);
+      font-size:clamp(
+        3rem,
+        9vw,
+        7rem
+      );
     }
 
 
@@ -1875,12 +1608,9 @@
 
       border-radius:50%;
 
-      border:
-        1px solid
-        rgba(255,255,255,.6);
+      border:1px solid rgba(255,255,255,.6);
 
-      background:
-        rgba(20,16,14,.72);
+      background:rgba(20,16,14,.72);
 
       color:#fff;
 
@@ -1899,7 +1629,6 @@
       opacity:.75;
     }
 
-
     .success{
 
       margin-top:12px;
@@ -1908,7 +1637,6 @@
 
       display:none;
     }
-
 
     .sr-only{
 
@@ -1939,42 +1667,28 @@
     @media(max-width:800px){
 
       .section{
-
         padding:75px 16px;
       }
 
-
       .countdown-grid{
-
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
-
 
       .gallery{
-
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
-
 
       .two-col{
-
         grid-template-columns:1fr;
       }
-
 
       .fields{
-
         grid-template-columns:1fr;
       }
 
-
       .full{
-
         grid-column:auto;
       }
-
 
       .event-art{
 
@@ -1984,7 +1698,6 @@
 
         opacity:.9;
       }
-
 
       .event-nav{
 
@@ -1996,14 +1709,12 @@
         justify-content:flex-start;
       }
 
-
       .event-nav a{
 
         font-size:.58rem;
 
         padding:8px 9px;
       }
-
     }
 
 
@@ -2016,18 +1727,13 @@
         opacity:.72;
       }
 
-
       .gallery{
-
         gap:9px;
       }
 
-
       .timebox{
-
         padding:20px 7px;
       }
-
     }
 
 
@@ -2043,13 +1749,8 @@
 
         transition:none !important;
       }
-
     }
 
-
-    /* =========================================================
-       THANK YOU
-       ========================================================= */
 
     #thankyou{
 
@@ -2062,7 +1763,6 @@
       padding:90px 22px 0 !important;
     }
 
-
     main{
 
       display:block;
@@ -2071,7 +1771,6 @@
 
       padding:0;
     }
-
 
     body{
 
@@ -2086,10 +1785,9 @@
 
 <body>
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        MUSIC BUTTON
-       ======================================================= -->
+       ===================================================== -->
 
   <button
     class="music"
@@ -2112,16 +1810,13 @@
 
 
     <!-- =====================================================
-         HERO / INTRO
+         HERO
          ===================================================== -->
 
     <section
       class="section hero"
       id="home"
     >
-
-
-      <!-- INTRO VIDEO -->
 
       <video
         class="intro-video"
@@ -2141,16 +1836,10 @@
       </video>
 
 
-      <!-- SUBTLE VIDEO TONE -->
-
-      <div
-        class="intro-video-overlay"
-      ></div>
+      <div class="intro-video-overlay"></div>
 
 
-      <!-- =================================================
-           TAP TO OPEN
-           ================================================= -->
+      <!-- OPEN BUTTON -->
 
       <div
         class="intro-open"
@@ -2161,17 +1850,13 @@
       >
 
         <div class="intro-open-pill">
-
           Tap Anywhere to Open
-
         </div>
 
       </div>
 
 
-      <!-- =================================================
-           SCROLL INDICATOR
-           ================================================= -->
+      <!-- SCROLL INDICATOR -->
 
       <div
         class="intro-scroll"
@@ -2180,16 +1865,11 @@
       >
 
         <div class="intro-scroll-label">
-
           Scroll
-
         </div>
 
-
         <div class="intro-scroll-arrow">
-
           ⌄
-
         </div>
 
       </div>
@@ -2204,9 +1884,6 @@
         aria-label="Wedding invitation"
       >
 
-
-        <!-- FAMILY -->
-
         <div class="intro-eyebrow">
 
           MR. ANURAG CHOUBEY
@@ -2216,8 +1893,6 @@
 
         </div>
 
-
-        <!-- REQUEST -->
 
         <div class="intro-request">
 
@@ -2229,34 +1904,20 @@
         </div>
 
 
-        <!-- BRIDE -->
-
         <div class="intro-bride">
-
           Dr. Shini
-
         </div>
 
-
-        <!-- WITH -->
 
         <div class="intro-with">
-
           WITH
-
         </div>
 
-
-        <!-- GROOM -->
 
         <div class="intro-groom">
-
           Dr. Piyush
-
         </div>
 
-
-        <!-- GROOM PARENTS -->
 
         <div class="intro-parents">
 
@@ -2266,7 +1927,6 @@
           &amp; DR. DINESH SHARMA
 
         </div>
-
 
       </div>
 
@@ -2292,27 +1952,17 @@
 
         <div class="scratch-intro">
 
-
           <div class="eyebrow">
-
             A little surprise awaits
-
           </div>
 
-
           <h2 class="script">
-
             Scratch to reveal the date
-
           </h2>
 
-
           <p>
-
             Uncover the day we begin our forever.
-
           </p>
-
 
         </div>
 
@@ -2322,29 +1972,19 @@
           id="scratchCard"
         >
 
-
           <div class="reveal">
-
 
             <div>
 
-
               <small>
-
                 The wedding date
-
               </small>
 
-
               <strong>
-
                 04 December 2026
-
               </strong>
 
-
             </div>
-
 
           </div>
 
@@ -2353,7 +1993,6 @@
             id="scratchCanvas"
             aria-label="Scratch card"
           ></canvas>
-
 
         </div>
 
@@ -2376,27 +2015,17 @@
 
         <div class="section-title">
 
-
           <div class="eyebrow">
-
             The day is getting closer
-
           </div>
-
 
           <h2 class="script">
-
             Counting Down to Forever
-
           </h2>
 
-
           <div class="ornament">
-
             ♥
-
           </div>
-
 
         </div>
 
@@ -2406,19 +2035,14 @@
           aria-live="polite"
         >
 
-
           <div class="timebox">
 
             <strong id="days">
-
               00
-
             </strong>
 
             <span>
-
               Days
-
             </span>
 
           </div>
@@ -2427,15 +2051,11 @@
           <div class="timebox">
 
             <strong id="hours">
-
               00
-
             </strong>
 
             <span>
-
               Hours
-
             </span>
 
           </div>
@@ -2444,15 +2064,11 @@
           <div class="timebox">
 
             <strong id="mins">
-
               00
-
             </strong>
 
             <span>
-
               Minutes
-
             </span>
 
           </div>
@@ -2461,19 +2077,14 @@
           <div class="timebox">
 
             <strong id="secs">
-
               00
-
             </strong>
 
             <span>
-
               Seconds
-
             </span>
 
           </div>
-
 
         </div>
 
@@ -2483,14 +2094,11 @@
           style="
             display:none;
             font-family:'Cormorant Garamond';
-            font-size:2rem;
+            font-size:2rem
           "
         >
-
           Today, we begin forever.
-
         </p>
-
 
       </div>
 
@@ -2498,7 +2106,7 @@
 
 
     <!-- =====================================================
-         MEHENDI
+         EVENTS
          ===================================================== -->
 
     <section
@@ -2509,13 +2117,12 @@
       <div
         class="bg"
         style="
-          background-image:url('assets/01-mehendi-bg.JPG')
+          background-image:
+          url('assets/01-mehendi-bg.JPG')
         "
       ></div>
 
-
       <div class="wash"></div>
-
 
       <img
         class="event-art"
@@ -2527,10 +2134,6 @@
     </section>
 
 
-    <!-- =====================================================
-         SANGEET
-         ===================================================== -->
-
     <section
       class="section event"
       id="sangeet"
@@ -2539,13 +2142,12 @@
       <div
         class="bg"
         style="
-          background-image:url('assets/03-sangeet-bg.JPG')
+          background-image:
+          url('assets/03-sangeet-bg.JPG')
         "
       ></div>
 
-
       <div class="wash"></div>
-
 
       <img
         class="event-art"
@@ -2557,10 +2159,6 @@
     </section>
 
 
-    <!-- =====================================================
-         HALDI
-         ===================================================== -->
-
     <section
       class="section event"
       id="haldi"
@@ -2569,13 +2167,12 @@
       <div
         class="bg"
         style="
-          background-image:url('assets/06-haldi-bg.PNG')
+          background-image:
+          url('assets/06-haldi-bg.PNG')
         "
       ></div>
 
-
       <div class="wash"></div>
-
 
       <img
         class="event-art"
@@ -2587,10 +2184,6 @@
     </section>
 
 
-    <!-- =====================================================
-         WEDDING
-         ===================================================== -->
-
     <section
       class="section event"
       id="wedding"
@@ -2599,13 +2192,12 @@
       <div
         class="bg"
         style="
-          background-image:url('assets/04-wedding-bg.PNG')
+          background-image:
+          url('assets/04-wedding-bg.PNG')
         "
       ></div>
 
-
       <div class="wash"></div>
-
 
       <img
         class="event-art"
@@ -2631,27 +2223,17 @@
 
         <div class="section-title">
 
-
           <div class="eyebrow">
-
             We'd love to celebrate with you
-
           </div>
-
 
           <h2 class="script">
-
             RSVP
-
           </h2>
 
-
           <div class="ornament">
-
             ♥
-
           </div>
-
 
         </div>
 
@@ -2661,18 +2243,14 @@
           id="rsvpForm"
         >
 
-
           <div class="fields">
 
 
             <div>
 
               <label for="guestName">
-
                 Guest Name
-
               </label>
-
 
               <input
                 id="guestName"
@@ -2685,11 +2263,8 @@
             <div>
 
               <label for="phone">
-
                 Phone Number
-
               </label>
-
 
               <input
                 id="phone"
@@ -2704,11 +2279,8 @@
             <div>
 
               <label for="guests">
-
                 Number of Guests
-
               </label>
-
 
               <input
                 id="guests"
@@ -2725,11 +2297,8 @@
             <div>
 
               <label for="attendance">
-
                 Attendance
-
               </label>
-
 
               <select
                 id="attendance"
@@ -2737,23 +2306,15 @@
               >
 
                 <option value="">
-
                   Select
-
                 </option>
 
-
                 <option>
-
                   Joyfully Accepts
-
                 </option>
 
-
                 <option>
-
                   Regretfully Declines
-
                 </option>
 
               </select>
@@ -2763,54 +2324,40 @@
 
             <div class="full">
 
-
               <label for="message">
-
                 Message
-
               </label>
-
 
               <textarea
                 id="message"
                 placeholder="Leave a message for the couple"
               ></textarea>
 
-
             </div>
 
 
             <div class="full rsvp-submit">
 
-
               <button
                 class="btn"
                 type="submit"
               >
-
                 Send RSVP
-
               </button>
-
 
               <div
                 class="success"
                 id="rsvpSuccess"
               >
-
-                Thank you — your RSVP has been recorded on this device.
-
+                Thank you — your RSVP has been recorded
+                on this device.
               </div>
-
 
             </div>
 
-
           </div>
 
-
         </form>
-
 
       </div>
 
@@ -2831,35 +2378,22 @@
 
         <div class="section-title">
 
-
           <div class="eyebrow">
-
             Join us in Orchha
-
           </div>
-
 
           <h2 class="script">
-
             The Wedding Venue
-
           </h2>
 
-
           <div class="ornament">
-
             ♥
-
           </div>
 
-
           <p>
-
             Raj Vilas The Palace, Orchha-Jhansi Road,
             Orchha, Madhya Pradesh 472246
-
           </p>
-
 
         </div>
 
@@ -2869,24 +2403,17 @@
 
           <div class="card glass">
 
-
             <h3>
-
               Raj Vilas Palace
-
             </h3>
 
-
             <p>
-
               Raj Vilas The Palace, Orchha-Jhansi Road,
               Orchha, Madhya Pradesh 472246
-
             </p>
 
 
             <div class="actions">
-
 
               <a
                 class="btn"
@@ -2894,9 +2421,7 @@
                 rel="noopener"
                 href="https://www.google.com/maps/search/?api=1&query=Raj+Vilas+The+Palace+Orchha-Jhansi+Road+Orchha+Madhya+Pradesh+472246"
               >
-
                 Open in Maps ↗
-
               </a>
 
 
@@ -2904,20 +2429,15 @@
                 class="btn secondary"
                 id="copyAddress"
               >
-
                 Copy Address
-
               </button>
 
-
             </div>
-
 
           </div>
 
 
           <div class="map">
-
 
             <iframe
               title="Raj Vilas Palace map"
@@ -2925,12 +2445,9 @@
               src="https://www.google.com/maps?q=Raj%20Vilas%20The%20Palace%2C%20Orchha-Jhansi%20Road%2C%20Orchha%2C%20Madhya%20Pradesh%20472246&output=embed"
             ></iframe>
 
-
           </div>
 
-
         </div>
-
 
       </div>
 
@@ -2951,27 +2468,17 @@
 
         <div class="section-title">
 
-
           <div class="eyebrow">
-
             Getting there
-
           </div>
-
 
           <h2 class="script">
-
             Travel &amp; Connectivity
-
           </h2>
 
-
           <div class="ornament">
-
             ♥
-
           </div>
-
 
         </div>
 
@@ -2981,27 +2488,17 @@
 
           <article class="card glass">
 
-
             <div class="eyebrow">
-
               Nearest Airport
-
             </div>
 
-
             <h3>
-
               Gwalior Airport (GWL)
-
             </h3>
 
-
             <p>
-
               Use the button below to open directions.
-
             </p>
-
 
             <a
               class="btn"
@@ -3009,38 +2506,25 @@
               rel="noopener"
               href="https://www.google.com/maps/search/?api=1&query=Gwalior+Airport"
             >
-
               Get Directions ↗
-
             </a>
-
 
           </article>
 
 
           <article class="card glass">
 
-
             <div class="eyebrow">
-
               Nearest Railway Station
-
             </div>
 
-
             <h3>
-
               Jhansi Railway Station
-
             </h3>
 
-
             <p>
-
               Use the button below to open directions.
-
             </p>
-
 
             <a
               class="btn"
@@ -3048,17 +2532,12 @@
               rel="noopener"
               href="https://www.google.com/maps/search/?api=1&query=Jhansi+Railway+Station"
             >
-
               Get Directions ↗
-
             </a>
-
 
           </article>
 
-
         </div>
-
 
       </div>
 
@@ -3074,30 +2553,19 @@
       id="thankyou"
     >
 
-
       <div class="content">
 
-
         <div class="eyebrow">
-
           Until we meet in Orchha
-
         </div>
-
 
         <h2 class="script">
-
           Thank You
-
         </h2>
 
-
         <div class="ornament">
-
           ♥
-
         </div>
-
 
         <p
           style="
@@ -3105,24 +2573,16 @@
             font-size:1.5rem
           "
         >
-
           We can't wait to celebrate with you.
-
         </p>
 
-
         <div class="names">
-
           Choubey Family
-
         </div>
-
 
       </div>
 
-
     </section>
-
 
   </main>
 
@@ -3134,11 +2594,6 @@
   <script>
 
   (() => {
-
-
-    /* =====================================================
-       CONFIG
-       ===================================================== */
 
     const CONFIG = {
 
@@ -3177,16 +2632,21 @@
       if(diff <= 0){
 
         document
-          .querySelector(".countdown-grid")
+          .querySelector(
+            ".countdown-grid"
+          )
           .style.display = "none";
 
 
         document
-          .getElementById("countdownDone")
+          .getElementById(
+            "countdownDone"
+          )
           .style.display = "block";
 
 
         return;
+
       }
 
 
@@ -3461,9 +2921,7 @@
     function scratch(e){
 
       if(revealed){
-
         return;
-
       }
 
 
@@ -3537,9 +2995,7 @@
 
 
         if(d[i] < 20){
-
           clear++;
-
         }
 
       }
@@ -3550,7 +3006,6 @@
       ){
 
         revealed = true;
-
 
         card.classList.add(
           "revealed"
@@ -3578,7 +3033,6 @@
       e => {
 
         e.preventDefault();
-
 
         scratching = true;
 
@@ -3656,31 +3110,47 @@
 
             name:
               document
-                .getElementById("guestName")
+                .getElementById(
+                  "guestName"
+                )
                 .value,
+
 
             phone:
               document
-                .getElementById("phone")
+                .getElementById(
+                  "phone"
+                )
                 .value,
+
 
             guests:
               document
-                .getElementById("guests")
+                .getElementById(
+                  "guests"
+                )
                 .value,
+
 
             attendance:
               document
-                .getElementById("attendance")
+                .getElementById(
+                  "attendance"
+                )
                 .value,
+
 
             message:
               document
-                .getElementById("message")
+                .getElementById(
+                  "message"
+                )
                 .value,
 
+
             savedAt:
-              new Date().toISOString()
+              new Date()
+                .toISOString()
 
           };
 
@@ -3692,9 +3162,10 @@
 
 
           document
-            .getElementById("rsvpSuccess")
-            .style.display =
-            "block";
+            .getElementById(
+              "rsvpSuccess"
+            )
+            .style.display = "block";
 
         }
       );
@@ -3724,6 +3195,7 @@
             alert(
               "Address copied."
             );
+
 
           }catch{
 
@@ -3771,7 +3243,6 @@
 
       musicBtn.setAttribute(
         "aria-label",
-
         playing
           ? "Pause wedding music"
           : "Play wedding music"
@@ -3780,7 +3251,6 @@
 
       musicBtn.setAttribute(
         "title",
-
         playing
           ? "Pause music"
           : "Play music"
@@ -3849,9 +3319,12 @@
       );
 
 
-    let introRevealed = false;
+    let introRevealed =
+      false;
 
-    let introFinished = false;
+
+    let introFinished =
+      false;
 
 
     function openInvitation(){
@@ -3910,13 +3383,12 @@
     function revealIntroCopy(){
 
       if(introRevealed){
-
         return;
-
       }
 
 
-      introRevealed = true;
+      introRevealed =
+        true;
 
 
       introCopy.classList.add(
@@ -3952,8 +3424,8 @@
 
         revealIntroCopy();
 
-
-        introFinished = true;
+        introFinished =
+          true;
 
 
         introScroll?.classList.add(
@@ -3972,7 +3444,6 @@
           () => {
 
             revealIntroCopy();
-
 
             introScroll?.classList.add(
               "show"
@@ -4066,9 +3537,7 @@
       async () => {
 
         if(!CONFIG.musicUrl){
-
           return;
-
         }
 
 
@@ -4103,7 +3572,6 @@
 
                 e.target.animate(
                   [
-
                     {
                       opacity:0,
 
@@ -4117,17 +3585,14 @@
                       transform:
                         "translateY(0)"
                     }
-
                   ],
                   {
-
                     duration:700,
 
                     easing:
                       "cubic-bezier(.2,.7,.2,1)",
 
                     fill:"both"
-
                   }
                 );
 
@@ -4159,7 +3624,7 @@
 
 
     /* =====================================================
-       OPTIONAL GOOGLE MAPS
+       OPTIONAL GOOGLE MAPS CONFIGURATION
        ===================================================== */
 
     if(
@@ -4167,12 +3632,13 @@
     ){
 
       document
-        .querySelector(".map iframe")
+        .querySelector(
+          ".map iframe"
+        )
         .src =
-        CONFIG.googleMapsEmbedUrl;
+          CONFIG.googleMapsEmbedUrl;
 
     }
-
 
   })();
 

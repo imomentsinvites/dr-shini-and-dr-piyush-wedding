@@ -78,6 +78,14 @@
     .hero .bg,.hero .wash{display:none}
     .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
     .intro-video-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.18))}
+    .intro-open{position:absolute;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:0 20px 8vh;pointer-events:auto;opacity:1;transition:opacity .7s ease,visibility .7s ease;cursor:pointer}
+    .intro-open.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .intro-open-pill{display:inline-flex;align-items:center;justify-content:center;min-width:250px;padding:13px 26px;border:1px solid rgba(255,248,238,.55);border-radius:999px;background:rgba(35,22,25,.48);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-shadow:0 8px 28px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.16);color:#fff8ed;font-family:"Cormorant Garamond",serif;font-size:clamp(.95rem,2.7vw,1.2rem);font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+    .intro-scroll{position:absolute;left:50%;bottom:22px;z-index:15;display:flex;flex-direction:column;align-items:center;gap:5px;color:#fff8ed;opacity:0;visibility:hidden;transform:translate(-50%,10px);transition:opacity .8s ease,transform .8s ease,visibility .8s ease;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.65)}
+    .intro-scroll.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+    .intro-scroll-label{font-family:"DM Sans",sans-serif;font-size:.67rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
+    .intro-scroll-arrow{font-size:1.5rem;line-height:1;animation:introArrow 1.7s ease-in-out infinite}
+    @keyframes introArrow{50%{transform:translateY(7px)}}
     /* INTRO TEXT — soft translucent charcoal plaque for clean readability */
     .intro-copy{position:absolute;z-index:5;left:50%;top:52%;width:min(90%,760px);margin:0;padding:30px 24px 34px;text-align:center;opacity:0;visibility:hidden;transform:translate(-50%,-50%);background:linear-gradient(180deg,rgba(12,8,10,.08) 0%,rgba(12,8,10,.22) 12%,rgba(12,8,10,.34) 48%,rgba(12,8,10,.25) 84%,rgba(12,8,10,.06) 100%);border:1px solid rgba(255,248,238,.20);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
     .intro-copy.is-visible{visibility:visible;animation:introCopyIn 1.2s ease forwards}
@@ -250,6 +258,13 @@
         <source src="assets/intro-video.MP4" type="video/mp4">
       </video>
       <div class="intro-video-overlay"></div>
+      <div class="intro-open" id="introOpen" role="button" tabindex="0" aria-label="Tap anywhere to open invitation">
+        <div class="intro-open-pill">Tap Anywhere to Open</div>
+      </div>
+      <div class="intro-scroll" id="introScroll" aria-hidden="true">
+        <div class="intro-scroll-label">Scroll</div>
+        <div class="intro-scroll-arrow">⌄</div>
+      </div>
       <div class="intro-copy" aria-label="Wedding invitation">
         <div class="intro-eyebrow">MR. ANURAG CHOUBEY<br>(H/O LT. MRS. ANJU CHOUBEY)</div>
         <div class="intro-request">REQUEST YOUR GRACIOUS PRESENCE FOR<br>THE WEDDING CELEBRATION OF THEIR DAUGHTER</div>
@@ -474,7 +489,23 @@
   // The current intro video reaches the fully-open doorway at about 6 seconds.
   const introVideo=document.getElementById("introVideo");
   const introCopy=document.querySelector(".intro-copy");
+  const introOpen=document.getElementById("introOpen");
+  const introScroll=document.getElementById("introScroll");
   let introRevealed=false;
+  let introFinished=false;
+
+  function openInvitation(){
+    if(introOpen) introOpen.classList.add("hidden");
+    startMusic();
+    if(introVideo && introVideo.paused){
+      introVideo.play().catch(()=>{});
+    }
+  }
+  introOpen?.addEventListener("pointerdown",openInvitation);
+  introOpen?.addEventListener("keydown",e=>{
+    if(e.key==="Enter" || e.key===" "){e.preventDefault();openInvitation();}
+  });
+
   function revealIntroCopy(){
     if(introRevealed) return;
     introRevealed=true;
@@ -483,8 +514,17 @@
   introVideo.addEventListener("timeupdate",()=>{
     if(introVideo.currentTime>=7.0) revealIntroCopy();
   });
-  introVideo.addEventListener("ended",revealIntroCopy);
-  introVideo.addEventListener("error",()=>setTimeout(revealIntroCopy,7000));
+  introVideo.addEventListener("ended",()=>{
+    revealIntroCopy();
+    introFinished=true;
+    introScroll?.classList.add("show");
+  });
+  introVideo.addEventListener("error",()=>{
+    setTimeout(()=>{
+      revealIntroCopy();
+      introScroll?.classList.add("show");
+    },7000);
+  });
   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) revealIntroCopy();
 
   function firstInteraction(){

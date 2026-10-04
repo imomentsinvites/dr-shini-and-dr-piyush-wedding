@@ -78,16 +78,19 @@
     .hero .bg,.hero .wash{display:none}
     .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
     .intro-video-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.18))}
-    .intro-copy{position:absolute;z-index:5;left:50%;top:64%;width:min(90%,760px);margin:0;padding:30px 22px;text-align:center;opacity:0;visibility:hidden;transform:translate(-50%,18px);background:linear-gradient(to bottom,rgba(255,248,238,0) 0%,rgba(255,248,238,.12) 18%,rgba(255,248,238,.20) 50%,rgba(255,248,238,.10) 82%,rgba(255,248,238,0) 100%);border-radius:50%}.intro-copy.is-visible{visibility:visible;animation:introCopyIn 1.2s ease forwards}
-    .intro-copy .intro-eyebrow,.intro-copy .intro-request,.intro-copy .intro-parents{color:#542d3a;text-shadow:0 1px 2px rgba(255,250,242,.95),0 0 9px rgba(255,248,238,.65)}
+    /* INTRO TEXT — soft translucent charcoal plaque for clean readability */
+    .intro-copy{position:absolute;z-index:5;left:50%;top:64%;width:min(90%,760px);margin:0;padding:30px 24px 34px;text-align:center;opacity:0;visibility:hidden;transform:translate(-50%,18px);background:linear-gradient(180deg,rgba(12,8,10,.08) 0%,rgba(12,8,10,.22) 12%,rgba(12,8,10,.34) 48%,rgba(12,8,10,.25) 84%,rgba(12,8,10,.06) 100%);border:1px solid rgba(255,248,238,.20);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+    .intro-copy.is-visible{visibility:visible;animation:introCopyIn 1.2s ease forwards}
+    .intro-copy .intro-eyebrow,.intro-copy .intro-request,.intro-copy .intro-parents{color:#fff8ed;text-shadow:0 1px 5px rgba(0,0,0,.65),0 0 10px rgba(0,0,0,.35)}
     .intro-copy .intro-eyebrow{font-family:"Cormorant Garamond",serif;font-size:clamp(.85rem,2.2vw,1.15rem);letter-spacing:.10em;text-transform:uppercase;margin-bottom:16px;line-height:1.45}
     .intro-copy .intro-request{font-family:"Cormorant Garamond",serif;font-size:clamp(.82rem,2.1vw,1.1rem);letter-spacing:.075em;line-height:1.55;margin-bottom:28px}
-    .intro-copy .intro-bride,.intro-copy .intro-groom{font-family:Italianno,cursive;font-size:clamp(4.5rem,16vw,9rem);line-height:.82;color:#632d43;text-shadow:0 2px 3px rgba(255,250,242,.9),0 0 14px rgba(255,248,238,.7)}
-    .intro-copy .intro-with{font-family:"Cormorant Garamond",serif;font-size:clamp(1.15rem,3vw,1.7rem);letter-spacing:.22em;margin:20px 0;color:#542d3a;text-shadow:0 1px 2px rgba(255,250,242,.95),0 0 8px rgba(255,248,238,.7)}
+    .intro-copy .intro-bride,.intro-copy .intro-groom{font-family:Italianno,cursive;font-size:clamp(4.5rem,16vw,9rem);line-height:.82;color:#f8e9d2;text-shadow:0 3px 7px rgba(0,0,0,.58),0 0 18px rgba(0,0,0,.28)}
+    .intro-copy .intro-with{font-family:"Cormorant Garamond",serif;font-size:clamp(1.15rem,3vw,1.7rem);letter-spacing:.22em;margin:20px 0;color:#fff4e4;text-shadow:0 2px 6px rgba(0,0,0,.6)}
     .intro-copy .intro-parents{font-family:"Cormorant Garamond",serif;font-size:clamp(.8rem,2vw,1.05rem);line-height:1.5;letter-spacing:.09em;margin-top:28px}
-    @keyframes introCopyIn{to{opacity:1;transform:translateY(0)}}
+    @media (max-width:600px){.intro-copy{top:64%;width:91%;padding:26px 14px 30px;border-radius:18px;background:linear-gradient(180deg,rgba(12,8,10,.08) 0%,rgba(12,8,10,.25) 12%,rgba(12,8,10,.36) 50%,rgba(12,8,10,.24) 86%,rgba(12,8,10,.05) 100%)}.intro-copy .intro-eyebrow{font-size:.82rem}.intro-copy .intro-request{font-size:.79rem;line-height:1.5}.intro-copy .intro-bride,.intro-copy .intro-groom{font-size:clamp(4rem,17vw,6.5rem)}.intro-copy .intro-with{font-size:1.25rem;margin:15px 0}.intro-copy .intro-parents{font-size:.8rem}}
+    @keyframes introCopyIn{to{opacity:1;transform:translate(-50%,0)}}
     @media (max-width:600px){.intro-copy{top:64%;width:92%;padding:26px 14px}.intro-copy .intro-eyebrow{font-size:.82rem}.intro-copy .intro-request{font-size:.79rem;line-height:1.5}.intro-copy .intro-bride,.intro-copy .intro-groom{font-size:clamp(4rem,17vw,6.5rem)}.intro-copy .intro-with{font-size:1.25rem;margin:15px 0}.intro-copy .intro-parents{font-size:.8rem}}
-    @media (prefers-reduced-motion:reduce){.intro-copy{visibility:visible;animation:none;opacity:1;transform:translateX(-50%)}}
+    @media (prefers-reduced-motion:reduce){.intro-copy{visibility:visible;animation:none;opacity:1;transform:translate(-50%,0)}}
     .hero-inner{max-width:950px}
     .names{letter-spacing:.01em;text-shadow:0 8px 30px rgba(0,0,0,.25)}
     .amp{font-family:Italianno,cursive;font-size:.72em;display:inline-block;margin:.05em .1em}

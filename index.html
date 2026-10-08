@@ -2333,8 +2333,8 @@
                 class="success"
                 id="rsvpSuccess"
               >
-                Thank you — your RSVP has been recorded
-                on this device.
+                Your RSVP is ready in WhatsApp — please tap Send
+                to submit it.
               </div>
 
             </div>
@@ -3282,11 +3282,32 @@
           };
 
 
+          /* Keep a local copy as a backup on this device. */
           localStorage.setItem(
             "shiniPiyushRSVP",
             JSON.stringify(data)
           );
 
+
+          /* Open a direct WhatsApp chat with the RSVP details pre-filled.
+             The guest only needs to tap Send in WhatsApp. */
+          const whatsappNumber = "918108305232";
+
+          const whatsappMessage = [
+            "💍 Wedding RSVP",
+            "",
+            `Guest Name: ${data.name}`,
+            `Phone: ${data.phone}`,
+            `Number of Guests: ${data.guests}`,
+            `Attendance: ${data.attendance}`,
+            data.message ? `Message: ${data.message}` : ""
+          ]
+            .filter(Boolean)
+            .join("\n");
+
+
+          const whatsappUrl =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
           document
             .getElementById(
@@ -3295,15 +3316,8 @@
             .style.display = "block";
 
 
-          /*
-            Open the WhatsApp RSVP group after
-            the guest submits the RSVP form.
-          */
-          window.open(
-            "https://chat.whatsapp.com/L0d7RsPztvt0SB1iKLtLAI?mode=gi_t",
-            "_blank",
-            "noopener,noreferrer"
-          );
+          /* Use the same tab so WhatsApp opens reliably on mobile. */
+          window.location.href = whatsappUrl;
 
         }
       );

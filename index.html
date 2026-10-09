@@ -1614,12 +1614,67 @@
     }
 
     .success{
-
-      margin-top:12px;
-
-      color:#356b45;
-
+      margin-top:18px;
+      padding:20px;
+      border:1px solid rgba(61,41,38,.16);
+      border-radius:18px;
+      background:rgba(255,248,242,.92);
+      color:var(--ink);
       display:none;
+      line-height:1.6;
+    }
+
+    .success strong{
+      display:block;
+      margin-bottom:7px;
+      color:#356b45;
+      font-size:1.05rem;
+    }
+
+    .rsvp-next-steps{
+      margin:10px 0 0;
+      padding-left:22px;
+    }
+
+    .rsvp-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .rsvp-actions .btn{
+      margin:0;
+      text-align:center;
+      text-decoration:none;
+    }
+
+    .rsvp-message-fallback{
+      display:none;
+      margin-top:14px;
+    }
+
+    .rsvp-message-fallback textarea{
+      min-height:180px;
+      height:auto;
+      color:var(--ink);
+      background:#fff;
+      white-space:pre-wrap;
+    }
+
+    .rsvp-help{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    @media(max-width:600px){
+      .rsvp-actions{
+        flex-direction:column;
+      }
+      .rsvp-actions .btn{
+        width:100%;
+      }
     }
 
     .sr-only{
@@ -2332,9 +2387,49 @@
               <div
                 class="success"
                 id="rsvpSuccess"
+                role="status"
+                aria-live="polite"
               >
-                Your RSVP is ready in WhatsApp — please tap Send
-                to submit it.
+                <strong id="rsvpSuccessTitle">Your RSVP message is ready!</strong>
+                <span id="rsvpSuccessText">
+                  Your RSVP message has been copied. Join the WhatsApp group, then paste the message there and tap Send.
+                </span>
+
+                <ol class="rsvp-next-steps">
+                  <li>Tap <b>Join WhatsApp Group</b> below.</li>
+                  <li>Join the group if you haven't already.</li>
+                  <li>Paste the copied RSVP message into the group and tap <b>Send</b>.</li>
+                </ol>
+
+                <div class="rsvp-actions">
+                  <a
+                    class="btn"
+                    id="joinRsvpGroup"
+                    href="https://chat.whatsapp.com/L0d7RsPztvt0SB1iKLtLAI?mode=gi_t"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join WhatsApp Group
+                  </a>
+
+                  <button
+                    class="btn secondary"
+                    id="copyRsvpMessage"
+                    type="button"
+                  >
+                    Copy RSVP Message
+                  </button>
+                </div>
+
+                <div class="rsvp-message-fallback" id="rsvpMessageFallback">
+                  <label for="rsvpMessagePreview">Copy your RSVP message below</label>
+                  <textarea id="rsvpMessagePreview" readonly rows="8"></textarea>
+                  <p class="rsvp-help">Tap inside the text, select all, and copy it. Then paste it into the WhatsApp group.</p>
+                </div>
+
+                <p class="rsvp-help">
+                  Your RSVP is not sent until you paste it into the WhatsApp group and tap Send.
+                </p>
               </div>
 
             </div>
@@ -3224,76 +3319,84 @@
        RSVP
        ===================================================== */
 
+    const rsvpGroupInviteUrl =
+      "https://chat.whatsapp.com/L0d7RsPztvt0SB1iKLtLAI?mode=gi_t";
+
+    let currentRsvpMessage = "";
+
+    const rsvpSuccess =
+      document.getElementById("rsvpSuccess");
+
+    const rsvpSuccessText =
+      document.getElementById("rsvpSuccessText");
+
+    const rsvpMessageFallback =
+      document.getElementById("rsvpMessageFallback");
+
+    const rsvpMessagePreview =
+      document.getElementById("rsvpMessagePreview");
+
+
+    async function copyRsvpMessage(){
+
+      if(!currentRsvpMessage){
+        return false;
+      }
+
+      try{
+
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(currentRsvpMessage);
+          rsvpMessageFallback.style.display = "none";
+          rsvpSuccessText.textContent =
+            "Your RSVP message has been copied. Join the WhatsApp group, then paste the message there and tap Send.";
+          return true;
+        }
+
+      }catch(error){
+        /* Show the selectable text fallback below if clipboard access fails. */
+      }
+
+      rsvpMessagePreview.value = currentRsvpMessage;
+      rsvpMessageFallback.style.display = "block";
+      rsvpMessagePreview.focus();
+      rsvpMessagePreview.select();
+      rsvpSuccessText.textContent =
+        "Your browser couldn't copy the message automatically. Copy the text shown below, join the WhatsApp group, then paste it there and tap Send.";
+
+      return false;
+
+    }
+
+
     document
       .getElementById("rsvpForm")
       .addEventListener(
         "submit",
-        e => {
+        async e => {
 
           e.preventDefault();
 
-
           const data = {
-
-            name:
-              document
-                .getElementById(
-                  "guestName"
-                )
-                .value,
-
-
-            phone:
-              document
-                .getElementById(
-                  "phone"
-                )
-                .value,
-
-
-            guests:
-              document
-                .getElementById(
-                  "guests"
-                )
-                .value,
-
-
-            attendance:
-              document
-                .getElementById(
-                  "attendance"
-                )
-                .value,
-
-
-            message:
-              document
-                .getElementById(
-                  "message"
-                )
-                .value,
-
-
-            savedAt:
-              new Date()
-                .toISOString()
-
+            name: document.getElementById("guestName").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            guests: document.getElementById("guests").value,
+            attendance: document.getElementById("attendance").value,
+            message: document.getElementById("message").value.trim(),
+            savedAt: new Date().toISOString()
           };
 
+          /* Keep a local backup on this device; this does not submit the RSVP online. */
+          try{
+            localStorage.setItem(
+              "shiniPiyushRSVP",
+              JSON.stringify(data)
+            );
+          }catch(error){
+            /* Continue even if this browser blocks local storage. */
+          }
 
-          /* Keep a local copy as a backup on this device. */
-          localStorage.setItem(
-            "shiniPiyushRSVP",
-            JSON.stringify(data)
-          );
-
-
-          /* Open a direct WhatsApp chat with the RSVP details pre-filled.
-             The guest only needs to tap Send in WhatsApp. */
-          const whatsappNumber = "918108306532";
-
-          const whatsappMessage = [
+          currentRsvpMessage = [
             "💍 Wedding RSVP",
             "",
             `Guest Name: ${data.name}`,
@@ -3305,20 +3408,24 @@
             .filter(Boolean)
             .join("\n");
 
+          rsvpMessagePreview.value = currentRsvpMessage;
+          rsvpMessageFallback.style.display = "none";
+          rsvpSuccess.style.display = "block";
+          rsvpSuccess.scrollIntoView({behavior:"smooth", block:"nearest"});
 
-          const whatsappUrl =
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+          /* Try to copy now while this submission is a user action. */
+          await copyRsvpMessage();
 
-          document
-            .getElementById(
-              "rsvpSuccess"
-            )
-            .style.display = "block";
+        }
+      );
 
 
-          /* Use the same tab so WhatsApp opens reliably on mobile. */
-          window.location.href = whatsappUrl;
-
+    document
+      .getElementById("copyRsvpMessage")
+      .addEventListener(
+        "click",
+        async () => {
+          await copyRsvpMessage();
         }
       );
 
